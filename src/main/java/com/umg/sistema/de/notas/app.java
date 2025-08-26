@@ -10,7 +10,8 @@ import javax.swing.JLabel;
 public class app extends javax.swing.JFrame {
 
     //Variables globales
-    int currentOpaqueLabel = 0;
+    int currentOpaqueLabel = 1;
+    boolean showPassword = false;
         
     public app() {
         initComponents();
@@ -33,9 +34,10 @@ public class app extends javax.swing.JFrame {
         lblIconEmail = new javax.swing.JLabel();
         lblLoginEmailMessage = new javax.swing.JLabel();
         lblLoginMessagePassword = new javax.swing.JLabel();
+        lblLoginShowHide = new javax.swing.JLabel();
         teacherDashboard = new javax.swing.JPanel();
         pnlTeacherTop = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        lblTeacherTopInfo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         pnlTeacherInfo = new javax.swing.JPanel();
         lblTeacherShowDashboard = new javax.swing.JLabel();
@@ -121,9 +123,9 @@ public class app extends javax.swing.JFrame {
         pnlLogintabLayout.setHorizontalGroup(
             pnlLogintabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLogintabLayout.createSequentialGroup()
-                .addGap(322, 322, 322)
+                .addGap(342, 342, 342)
                 .addComponent(lblLoginTopInfo)
-                .addContainerGap(361, Short.MAX_VALUE))
+                .addContainerGap(341, Short.MAX_VALUE))
         );
         pnlLogintabLayout.setVerticalGroup(
             pnlLogintabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,20 +144,37 @@ public class app extends javax.swing.JFrame {
         lblLoginTitle.setText("Iniciar Sesión");
 
         txtLoginEmail.setBackground(new java.awt.Color(252, 255, 252));
-        txtLoginEmail.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtLoginEmail.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
         txtLoginEmail.setForeground(new java.awt.Color(102, 102, 102));
         txtLoginEmail.setText("Correo");
         txtLoginEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(53, 36, 97)));
         txtLoginEmail.setCaretColor(new java.awt.Color(53, 36, 97));
         txtLoginEmail.setSelectionColor(new java.awt.Color(19, 122, 127));
+        txtLoginEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtLoginEmailFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtLoginEmailFocusLost(evt);
+            }
+        });
 
         passLoginPassword.setBackground(new java.awt.Color(252, 255, 252));
         passLoginPassword.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         passLoginPassword.setForeground(new java.awt.Color(102, 102, 102));
-        passLoginPassword.setText("jPasswordField1");
+        passLoginPassword.setText("Contraseña");
         passLoginPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(53, 36, 97)));
         passLoginPassword.setCaretColor(new java.awt.Color(53, 36, 97));
+        passLoginPassword.setEchoChar('\u0000');
         passLoginPassword.setSelectionColor(new java.awt.Color(19, 122, 127));
+        passLoginPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passLoginPasswordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                passLoginPasswordFocusLost(evt);
+            }
+        });
 
         btnLoginLog.setBackground(new java.awt.Color(53, 36, 97));
         btnLoginLog.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
@@ -173,9 +192,22 @@ public class app extends javax.swing.JFrame {
 
         lblIconEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconLoginEmail.png"))); // NOI18N
 
+        lblLoginEmailMessage.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
         lblLoginEmailMessage.setForeground(new java.awt.Color(255, 51, 51));
 
+        lblLoginMessagePassword.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        lblLoginMessagePassword.setForeground(new java.awt.Color(255, 51, 51));
         lblLoginMessagePassword.setPreferredSize(new java.awt.Dimension(200, 15));
+
+        lblLoginShowHide.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        lblLoginShowHide.setForeground(new java.awt.Color(53, 36, 97));
+        lblLoginShowHide.setText("Mostrar");
+        lblLoginShowHide.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblLoginShowHide.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLoginShowHideMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout inSesionLayout = new javax.swing.GroupLayout(inSesion);
         inSesion.setLayout(inSesionLayout);
@@ -193,7 +225,9 @@ public class app extends javax.swing.JFrame {
                     .addComponent(passLoginPassword)
                     .addComponent(txtLoginEmail)
                     .addComponent(lblLoginEmailMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblLoginShowHide)
+                .addContainerGap(85, Short.MAX_VALUE))
             .addComponent(lblLoginTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         inSesionLayout.setVerticalGroup(
@@ -209,7 +243,9 @@ public class app extends javax.swing.JFrame {
                 .addComponent(lblLoginEmailMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(inSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(passLoginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(inSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(passLoginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblLoginShowHide))
                     .addComponent(lblIconPassword))
                 .addGap(4, 4, 4)
                 .addComponent(lblLoginMessagePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,7 +255,7 @@ public class app extends javax.swing.JFrame {
         );
 
         login.add(inSesion);
-        inSesion.setBounds(300, 0, 500, 600);
+        inSesion.setBounds(300, -10, 500, 600);
 
         mainPanel.add(login, "login");
 
@@ -229,13 +265,13 @@ public class app extends javax.swing.JFrame {
         pnlTeacherTop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlTeacherTop.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel6.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(236, 231, 220));
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconTeacherDashboardTopInfo.png"))); // NOI18N
-        jLabel6.setText("Dashboard");
-        jLabel6.setMaximumSize(new java.awt.Dimension(93, 30));
-        jLabel6.setMinimumSize(new java.awt.Dimension(93, 30));
-        jLabel6.setPreferredSize(new java.awt.Dimension(93, 30));
+        lblTeacherTopInfo.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        lblTeacherTopInfo.setForeground(new java.awt.Color(236, 231, 220));
+        lblTeacherTopInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconTeacherDashboardTopInfo.png"))); // NOI18N
+        lblTeacherTopInfo.setText("Dashboard");
+        lblTeacherTopInfo.setMaximumSize(new java.awt.Dimension(93, 30));
+        lblTeacherTopInfo.setMinimumSize(new java.awt.Dimension(93, 30));
+        lblTeacherTopInfo.setPreferredSize(new java.awt.Dimension(93, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -249,13 +285,13 @@ public class app extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(255, 255, 255)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTeacherTopInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(313, Short.MAX_VALUE))
         );
         pnlTeacherTopLayout.setVerticalGroup(
             pnlTeacherTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTeacherTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTeacherTopInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4))
         );
 
@@ -341,16 +377,17 @@ public class app extends javax.swing.JFrame {
 
         lblDashboardCourse4.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
         lblDashboardCourse4.setForeground(new java.awt.Color(0, 0, 0));
+        lblDashboardCourse4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDashboardCourse4.setText("Curso 4");
 
         javax.swing.GroupLayout pnlDashboardCourse4Layout = new javax.swing.GroupLayout(pnlDashboardCourse4);
         pnlDashboardCourse4.setLayout(pnlDashboardCourse4Layout);
         pnlDashboardCourse4Layout.setHorizontalGroup(
             pnlDashboardCourse4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDashboardCourse4Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(lblDashboardCourse4)
-                .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDashboardCourse4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblDashboardCourse4, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlDashboardCourse4Layout.setVerticalGroup(
             pnlDashboardCourse4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,6 +403,7 @@ public class app extends javax.swing.JFrame {
 
         lblDashboardCourse5.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
         lblDashboardCourse5.setForeground(new java.awt.Color(0, 0, 0));
+        lblDashboardCourse5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDashboardCourse5.setText("Curso 5");
 
         javax.swing.GroupLayout pnlDashboardCourse5Layout = new javax.swing.GroupLayout(pnlDashboardCourse5);
@@ -373,9 +411,9 @@ public class app extends javax.swing.JFrame {
         pnlDashboardCourse5Layout.setHorizontalGroup(
             pnlDashboardCourse5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDashboardCourse5Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(lblDashboardCourse5)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(lblDashboardCourse5, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlDashboardCourse5Layout.setVerticalGroup(
             pnlDashboardCourse5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,6 +430,7 @@ public class app extends javax.swing.JFrame {
 
         lblDashboardCourse6.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
         lblDashboardCourse6.setForeground(new java.awt.Color(0, 0, 0));
+        lblDashboardCourse6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDashboardCourse6.setText("Curso 6");
 
         javax.swing.GroupLayout pnlDashboardCourse6Layout = new javax.swing.GroupLayout(pnlDashboardCourse6);
@@ -399,9 +438,9 @@ public class app extends javax.swing.JFrame {
         pnlDashboardCourse6Layout.setHorizontalGroup(
             pnlDashboardCourse6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDashboardCourse6Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(lblDashboardCourse6)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(lblDashboardCourse6, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlDashboardCourse6Layout.setVerticalGroup(
             pnlDashboardCourse6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -417,6 +456,7 @@ public class app extends javax.swing.JFrame {
 
         lblDashboardCourse1.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
         lblDashboardCourse1.setForeground(new java.awt.Color(0, 0, 0));
+        lblDashboardCourse1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDashboardCourse1.setText("Curso 1");
 
         javax.swing.GroupLayout pnlDashboardCourse1Layout = new javax.swing.GroupLayout(pnlDashboardCourse1);
@@ -424,9 +464,9 @@ public class app extends javax.swing.JFrame {
         pnlDashboardCourse1Layout.setHorizontalGroup(
             pnlDashboardCourse1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDashboardCourse1Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(lblDashboardCourse1)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(lblDashboardCourse1, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlDashboardCourse1Layout.setVerticalGroup(
             pnlDashboardCourse1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -442,6 +482,7 @@ public class app extends javax.swing.JFrame {
 
         lblDashboardCourse2.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
         lblDashboardCourse2.setForeground(new java.awt.Color(0, 0, 0));
+        lblDashboardCourse2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDashboardCourse2.setText("Curso 2");
 
         javax.swing.GroupLayout pnlDashboardCourse2Layout = new javax.swing.GroupLayout(pnlDashboardCourse2);
@@ -449,9 +490,9 @@ public class app extends javax.swing.JFrame {
         pnlDashboardCourse2Layout.setHorizontalGroup(
             pnlDashboardCourse2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDashboardCourse2Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(lblDashboardCourse2)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(lblDashboardCourse2, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlDashboardCourse2Layout.setVerticalGroup(
             pnlDashboardCourse2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -468,6 +509,7 @@ public class app extends javax.swing.JFrame {
 
         lblDashboardCourse3.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
         lblDashboardCourse3.setForeground(new java.awt.Color(0, 0, 0));
+        lblDashboardCourse3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDashboardCourse3.setText("Curso 3");
 
         javax.swing.GroupLayout pnlDashboardCourse3Layout = new javax.swing.GroupLayout(pnlDashboardCourse3);
@@ -475,9 +517,9 @@ public class app extends javax.swing.JFrame {
         pnlDashboardCourse3Layout.setHorizontalGroup(
             pnlDashboardCourse3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDashboardCourse3Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(lblDashboardCourse3)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(lblDashboardCourse3, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlDashboardCourse3Layout.setVerticalGroup(
             pnlDashboardCourse3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -831,12 +873,14 @@ public class app extends javax.swing.JFrame {
         CardLayout card = (CardLayout)pnlTeacherContent.getLayout();
         initTeacherMenuOpaque(0);
         card.show(pnlTeacherContent, "teacherDashboard");
+        teacherTopInfo();
     }//GEN-LAST:event_lblTeacherShowDashboardMouseClicked
 
     private void lblTeacherShowAttendanceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTeacherShowAttendanceMouseClicked
         CardLayout card = (CardLayout)pnlTeacherContent.getLayout();
         initTeacherMenuOpaque(1);
-        card.show(pnlTeacherContent, "teacherAttendance");      
+        card.show(pnlTeacherContent, "teacherAttendance");
+        teacherTopInfo();
     }//GEN-LAST:event_lblTeacherShowAttendanceMouseClicked
 
     private void lblTeacherShowDashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTeacherShowDashboardMouseEntered
@@ -866,11 +910,57 @@ public class app extends javax.swing.JFrame {
             lblTeacherShowAttendance.repaint();
         }
     }//GEN-LAST:event_lblTeacherShowAttendanceMouseExited
+
+    private void txtLoginEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLoginEmailFocusGained
+        if("Correo".equals(txtLoginEmail.getText())){
+            txtLoginEmail.setText("");
+            txtLoginEmail.setForeground(Color.BLACK);
+        }
+        lblLoginEmailMessage.setText("");
+    }//GEN-LAST:event_txtLoginEmailFocusGained
+
+    private void txtLoginEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtLoginEmailFocusLost
+        if("".equals(txtLoginEmail.getText())){
+            txtLoginEmail.setText("Correo");
+            txtLoginEmail.setForeground(Color.GRAY);
+        }
+    }//GEN-LAST:event_txtLoginEmailFocusLost
+
+    private void passLoginPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passLoginPasswordFocusGained
+        if("Contraseña".equals(String.valueOf(passLoginPassword.getPassword()))){
+            passLoginPassword.setText("");
+            passLoginPassword.setForeground(Color.BLACK);
+        }
+        showPassword();
+        lblLoginMessagePassword.setText("");
+    }//GEN-LAST:event_passLoginPasswordFocusGained
+
+    private void passLoginPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passLoginPasswordFocusLost
+        if("".equals(String.valueOf(passLoginPassword.getPassword()))){
+            passLoginPassword.setText("Contraseña");
+            passLoginPassword.setForeground(Color.GRAY);
+            passLoginPassword.setEchoChar('\u0000');
+        }
+            
+    }//GEN-LAST:event_passLoginPasswordFocusLost
+
+    private void lblLoginShowHideMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginShowHideMouseClicked
+        if(showPassword){
+            lblLoginShowHide.setText("Mostrar");
+        }else{
+            lblLoginShowHide.setText("Ocultar");
+        }
+        showPassword = !showPassword;
+        if("Contraseña".equals(String.valueOf(passLoginPassword.getPassword()))){
+            passLoginPassword.setEchoChar('\u0000');
+        }else{
+            showPassword();
+        }
+    }//GEN-LAST:event_lblLoginShowHideMouseClicked
    
     private void initTeacher(){
         initTeacherMenuOpaque(0);
-        lblTeacherShowDashboard.setOpaque(true);
-        lblTeacherShowDashboard.repaint();
+        teacherTopInfo();
     }
     
     private void initTeacherMenuOpaque(int option){
@@ -889,6 +979,30 @@ public class app extends javax.swing.JFrame {
         labelList.get(option).repaint();
         labelList.get(currentOpaqueLabel).repaint();
         currentOpaqueLabel = option;
+    }
+    
+    private void showPassword(){
+        if(showPassword){
+            passLoginPassword.setEchoChar('\u0000');
+        }else{
+            passLoginPassword.setEchoChar('\u2022');
+        }
+    }
+    
+    private void teacherTopInfo(){
+        switch(currentOpaqueLabel){
+            case 0:{
+                lblTeacherTopInfo.setText("Dashboard");
+                
+             //   lblTeacherTopInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard.png")));
+                break;
+            }
+            case 1:{
+                lblTeacherTopInfo.setText("Asistencia");
+            //    lblTeacherTopInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/attendance.png")));
+                break;
+            }
+        }
     }
     
     public static void main(String args[]) {
@@ -956,7 +1070,6 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
@@ -976,10 +1089,12 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JLabel lblIconPassword;
     private javax.swing.JLabel lblLoginEmailMessage;
     private javax.swing.JLabel lblLoginMessagePassword;
+    private javax.swing.JLabel lblLoginShowHide;
     private javax.swing.JLabel lblLoginTitle;
     private javax.swing.JLabel lblLoginTopInfo;
     private javax.swing.JLabel lblTeacherShowAttendance;
     private javax.swing.JLabel lblTeacherShowDashboard;
+    private javax.swing.JLabel lblTeacherTopInfo;
     private javax.swing.JPanel login;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPasswordField passLoginPassword;
