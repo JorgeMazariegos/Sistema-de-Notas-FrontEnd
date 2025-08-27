@@ -1,5 +1,13 @@
-com\umg\sistema\de\notas\app$3.class
 com\umg\sistema\de\notas\app$4.class
+com\umg\sistema\de\notas\model\Teacher.class
+com\umg\sistema\de\notas\model\Course.class
 com\umg\sistema\de\notas\app$7.class
+com\umg\sistema\de\notas\validation\Encryption.class
 com\umg\sistema\de\notas\app$6.class
+com\umg\sistema\de\notas\model\Grade.class
+com\umg\sistema\de\notas\model\Attendance.class
+com\umg\sistema\de\notas\app$3.class
+com\umg\sistema\de\notas\validation\Validation.class
+com\umg\sistema\de\notas\model\Student.class
 com\umg\sistema\de\notas\app$5.class
+com\umg\sistema\de\notas\model\Asignacion.class
