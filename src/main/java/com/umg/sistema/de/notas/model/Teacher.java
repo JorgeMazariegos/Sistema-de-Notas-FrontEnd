@@ -1,4 +1,6 @@
 package com.umg.sistema.de.notas.model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+@JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Teacher {
     private int id;
@@ -8,6 +10,10 @@ public class Teacher {
     private String telefono;
     private String password;
 
+    public Teacher(){
+        
+    }
+    
     public Teacher(int id, String nombre, String email, String especialidad, String telefono, String password) {
         this.id = id;
         this.nombre = nombre;
@@ -65,4 +71,8 @@ public class Teacher {
         this.password = password;
     }
     
+    @Override
+    public String toString(){
+        return "id: " + this.id + " nombre: " + this.nombre + " email:" + this.email;
+    }
 }

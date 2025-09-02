@@ -1,6 +1,10 @@
 package com.umg.sistema.de.notas.validation;
+import com.umg.sistema.de.notas.model.Teacher;
+import java.security.NoSuchAlgorithmException;
 
 public class Validation {
+    Encryption encriptar = new Encryption();
+    
     public int comprobarCorreo(String correo){
         if(comprobarTeacher(correo)){
             return 1;
@@ -10,6 +14,10 @@ public class Validation {
         }
         return 0;
     }
+    
+     public boolean comprobarPassword(Teacher teacher, String password) throws NoSuchAlgorithmException{
+        return encriptar.hashMD5(password).equals(teacher.getPassword());         
+     }
     
     private boolean comprobarTeacher(String correo){
         String[] correos = {"edu.com"};
@@ -40,4 +48,5 @@ public class Validation {
         }
         return false;
     }
+    
 }

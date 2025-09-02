@@ -1,4 +1,6 @@
 package com.umg.sistema.de.notas.model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+@JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Asignacion {
     private int id;
