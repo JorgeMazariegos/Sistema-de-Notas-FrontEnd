@@ -53,4 +53,5 @@ com\umg\sistema\de\notas\app$22.class
 com\umg\sistema\de\notas\service\GradeService.class
 com\umg\sistema\de\notas\app$5.class
 com\umg\sistema\de\notas\model\Asignacion.class
+com\umg\sistema\de\notas\app$25.class
 com\umg\sistema\de\notas\service\SeccionService$1.class

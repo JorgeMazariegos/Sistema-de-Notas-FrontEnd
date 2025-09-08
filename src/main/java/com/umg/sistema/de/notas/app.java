@@ -29,20 +29,19 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
+
 
 
 public class app extends javax.swing.JFrame {
@@ -73,6 +72,7 @@ public class app extends javax.swing.JFrame {
     List<Tarea> teacherHomeworkList;
     List<Asignacion> asignacionList;
     List<Grade> gradeList;
+    List<Grade> updateGrade;
             
     public app() {
         initComponents();
@@ -82,7 +82,6 @@ public class app extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenu1 = new javax.swing.JMenu();
         mainPanel = new javax.swing.JPanel();
         login = new javax.swing.JPanel();
         pnlLogintab = new javax.swing.JPanel();
@@ -206,14 +205,14 @@ public class app extends javax.swing.JFrame {
         lblAddNotaMissingTareaSelected = new javax.swing.JLabel();
         lblAddNotaMissingTarea = new javax.swing.JLabel();
         pnlAttendanceCheckUpdate1 = new javax.swing.JPanel();
-        scrollPaneTableAttendance2 = new javax.swing.JScrollPane();
+        scrollTableConsultaNotas = new javax.swing.JScrollPane();
         tableGetUpdateNotes = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         cmbBoxConsultaNotasCurso = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         cmbBoxConsultaNotasEstudiante = new javax.swing.JComboBox<>();
-        jButton3 = new javax.swing.JButton();
+        btnUpdateGrade = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         cmbBoxConsultaNotasEvaluacion = new javax.swing.JComboBox<>();
         txtTotalNotas = new javax.swing.JTextField();
@@ -221,10 +220,8 @@ public class app extends javax.swing.JFrame {
         btnConsultarNotas = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         cmbBoxConsultaNotasLetraSeccion = new javax.swing.JComboBox<>();
-        jButton4 = new javax.swing.JButton();
+        btnSortGradesConsulta = new javax.swing.JButton();
         adminApp = new javax.swing.JPanel();
-
-        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -1340,58 +1337,56 @@ public class app extends javax.swing.JFrame {
         pnlAttendanceAdd1.setLayout(pnlAttendanceAdd1Layout);
         pnlAttendanceAdd1Layout.setHorizontalGroup(
             pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
-                            .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
-                                    .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel35)
-                                        .addComponent(jLabel33))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(cmbCoursesAddGrade, 0, 121, Short.MAX_VALUE)
-                                        .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(cmbBoxAddGradeSeccion, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cmbBoxRegistrarNotaTipoEvaluacion, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addComponent(btnAddGradeBuscarTareas)
-                                        .addComponent(lblAddNotaMissingTarea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel29))
-                            .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAttendanceAdd1Layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel72)
-                                    .addGap(143, 143, 143))
-                                .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
-                                            .addComponent(lblAddNotaMissingTareaSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
-                                            .addComponent(jScrollPane4)
-                                            .addGap(26, 26, 26))))))
-                        .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
-                            .addGap(432, 432, 432)
-                            .addComponent(btnAddGrades)
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
-                    .addGap(159, 159, 159)
-                    .addComponent(jLabel12)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrollPaneAddGradesTable, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
-                        .addComponent(btnAddGradeLoadStudents)
-                        .addGap(92, 92, 92)
-                        .addComponent(jLabel38)
-                        .addGap(136, 136, 136)))
+                        .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
+                                .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel35)
+                                    .addComponent(jLabel33))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cmbCoursesAddGrade, 0, 121, Short.MAX_VALUE)
+                                    .addComponent(cmbBoxAddGradeSeccion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbBoxRegistrarNotaTipoEvaluacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAddGradeBuscarTareas)
+                                    .addComponent(lblAddNotaMissingTarea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel29))
+                        .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAttendanceAdd1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel72)
+                                .addGap(143, 143, 143))
+                            .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
+                                        .addComponent(lblAddNotaMissingTareaSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
+                                        .addComponent(jScrollPane4)
+                                        .addGap(26, 26, 26))))))
+                    .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
+                        .addGap(432, 432, 432)
+                        .addComponent(btnAddGrades)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
+                .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(jLabel12))
+                    .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pnlAttendanceAdd1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(scrollPaneAddGradesTable, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlAttendanceAdd1Layout.createSequentialGroup()
+                                .addComponent(btnAddGradeLoadStudents)
+                                .addGap(92, 92, 92)
+                                .addComponent(jLabel38)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlAttendanceAdd1Layout.setVerticalGroup(
@@ -1441,9 +1436,9 @@ public class app extends javax.swing.JFrame {
 
         pnlAttendanceCheckUpdate1.setBackground(new java.awt.Color(35, 151, 155));
 
-        scrollPaneTableAttendance2.setBackground(new java.awt.Color(153, 0, 0));
-        scrollPaneTableAttendance2.setForeground(new java.awt.Color(255, 51, 255));
-        scrollPaneTableAttendance2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollTableConsultaNotas.setBackground(new java.awt.Color(153, 0, 0));
+        scrollTableConsultaNotas.setForeground(new java.awt.Color(255, 51, 255));
+        scrollTableConsultaNotas.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         tableGetUpdateNotes.setBackground(new java.awt.Color(102, 153, 255));
         tableGetUpdateNotes.setForeground(new java.awt.Color(0, 0, 0));
@@ -1461,7 +1456,7 @@ public class app extends javax.swing.JFrame {
         tableGetUpdateNotes.setShowGrid(true);
         tableGetUpdateNotes.setShowVerticalLines(false);
         tableGetUpdateNotes.setUpdateSelectionOnSort(false);
-        scrollPaneTableAttendance2.setViewportView(tableGetUpdateNotes);
+        scrollTableConsultaNotas.setViewportView(tableGetUpdateNotes);
         if (tableGetUpdateNotes.getColumnModel().getColumnCount() > 0) {
             tableGetUpdateNotes.getColumnModel().getColumn(0).setResizable(false);
             tableGetUpdateNotes.getColumnModel().getColumn(0).setPreferredWidth(200);
@@ -1486,14 +1481,20 @@ public class app extends javax.swing.JFrame {
         cmbBoxConsultaNotasEstudiante.setFont(new java.awt.Font("Sitka Text", 1, 12)); // NOI18N
         cmbBoxConsultaNotasEstudiante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--" }));
 
-        jButton3.setText("Actualizar");
+        btnUpdateGrade.setText("Actualizar");
+        btnUpdateGrade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateGradeActionPerformed(evt);
+            }
+        });
 
         jLabel30.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
         jLabel30.setText("Tipo de evaluacion");
 
         cmbBoxConsultaNotasEvaluacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--", "Tarea", "Parcial", "Examen Final" }));
 
-        txtTotalNotas.setText("total");
+        txtTotalNotas.setEditable(false);
+        txtTotalNotas.setText("--");
 
         jLabel32.setText("Total:");
 
@@ -1508,10 +1509,10 @@ public class app extends javax.swing.JFrame {
 
         cmbBoxConsultaNotasLetraSeccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--" }));
 
-        jButton4.setText("Filtrar por estudiante");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnSortGradesConsulta.setText("Filtrar por estudiante");
+        btnSortGradesConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnSortGradesConsultaActionPerformed(evt);
             }
         });
 
@@ -1522,36 +1523,36 @@ public class app extends javax.swing.JFrame {
             .addGroup(pnlAttendanceCheckUpdate1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlAttendanceCheckUpdate1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlAttendanceCheckUpdate1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(pnlAttendanceCheckUpdate1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pnlAttendanceCheckUpdate1Layout.createSequentialGroup()
-                                .addComponent(jLabel32)
+                    .addGroup(pnlAttendanceCheckUpdate1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(pnlAttendanceCheckUpdate1Layout.createSequentialGroup()
+                            .addComponent(jLabel32)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtTotalNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnlAttendanceCheckUpdate1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(scrollTableConsultaNotas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlAttendanceCheckUpdate1Layout.createSequentialGroup()
+                                .addGroup(pnlAttendanceCheckUpdate1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(pnlAttendanceCheckUpdate1Layout.createSequentialGroup()
+                                        .addComponent(jLabel30)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cmbBoxConsultaNotasEvaluacion, 0, 100, Short.MAX_VALUE))
+                                    .addGroup(pnlAttendanceCheckUpdate1Layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cmbBoxConsultaNotasCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTotalNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlAttendanceCheckUpdate1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(scrollPaneTableAttendance2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlAttendanceCheckUpdate1Layout.createSequentialGroup()
-                                    .addGroup(pnlAttendanceCheckUpdate1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(pnlAttendanceCheckUpdate1Layout.createSequentialGroup()
-                                            .addComponent(jLabel30)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(cmbBoxConsultaNotasEvaluacion, 0, 100, Short.MAX_VALUE))
-                                        .addGroup(pnlAttendanceCheckUpdate1Layout.createSequentialGroup()
-                                            .addComponent(jLabel8)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cmbBoxConsultaNotasCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel11)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(cmbBoxConsultaNotasLetraSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jButton3))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAttendanceCheckUpdate1Layout.createSequentialGroup()
-                            .addComponent(jButton4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel10)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cmbBoxConsultaNotasEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbBoxConsultaNotasLetraSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlAttendanceCheckUpdate1Layout.createSequentialGroup()
+                                .addGap(126, 126, 126)
+                                .addComponent(btnSortGradesConsulta)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbBoxConsultaNotasEstudiante, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnUpdateGrade))
                     .addComponent(btnConsultarNotas))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
@@ -1576,15 +1577,15 @@ public class app extends javax.swing.JFrame {
                 .addGroup(pnlAttendanceCheckUpdate1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbBoxConsultaNotasEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
-                    .addComponent(jButton4))
+                    .addComponent(btnSortGradesConsulta))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(scrollPaneTableAttendance2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollTableConsultaNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlAttendanceCheckUpdate1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTotalNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32))
                 .addGap(37, 37, 37)
-                .addComponent(jButton3)
+                .addComponent(btnUpdateGrade)
                 .addContainerGap())
         );
 
@@ -2085,21 +2086,93 @@ public class app extends javax.swing.JFrame {
         tableAddGrades.removeAll();
     }//GEN-LAST:event_btnAddGradesActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnSortGradesConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSortGradesConsultaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        DefaultTableModel model;
+        model = new DefaultTableModel(new String [] {"Nombre","Carnet","Tarea","Nota"}, 0);
+        tableGetUpdateNotes.setModel(model);
+        BigDecimal total = BigDecimal.ZERO;
+        updateGrade = new ArrayList<>();
+        
+        for(Grade g : gradeList){
+            int idAsignacion = g.getId_asignacion();
+            int idEstudiante = 0;
+            String nombre = null;
+            String apellido = null;
+            String carnet = null;
+            String tarea = g.getTipoEvaluacion();
+            BigDecimal nota = g.getNota();            
+            
+            for(Asignacion a : asignacionList){
+                if(idAsignacion == a.getId_asignacion()){
+                    idEstudiante = a.getId_estudiante();
+                }
+            }     
+            for(Student s: courseStudentList){
+                if(idEstudiante == s.getId_estudiante()){
+                    nombre = s.getNombre();
+                    apellido = s.getApellido();
+                    carnet = s.getCarnet();
+                }
+                
+            } 
+            
+            String selectedEstudiante = cmbBoxConsultaNotasEstudiante.getSelectedItem().toString();
+            String selectedEvaluacion = cmbBoxConsultaNotasEvaluacion.getSelectedItem().toString();
 
+            Object[] row = { nombre + " " + apellido, carnet, tarea, nota };
+            
+            if (shouldAddRow(selectedEstudiante, selectedEvaluacion, carnet, tarea)) {
+                model.addRow(row);
+                updateGrade.add(g);
+                total = total.add(nota);              
+            }
+            
+            if(!cmbBoxConsultaNotasEstudiante.getSelectedItem().equals("--")){
+                int totalFinal = total.setScale(0, RoundingMode.HALF_UP).intValue();
+                txtTotalNotas.setText(String.valueOf(totalFinal));
+            }
+        }
+    }//GEN-LAST:event_btnSortGradesConsultaActionPerformed
+
+    private boolean shouldAddRow(String selectedEstudiante, String selectedEvaluacion, String carnet, String tarea) {       
+        if (selectedEstudiante.equals("--")) {
+            return matchesEvaluacion(selectedEvaluacion, tarea);
+        }
+
+        if (carnet.equals(selectedEstudiante)) {
+            return matchesEvaluacion(selectedEvaluacion, tarea);
+        }
+
+        return false;
+    }
+
+    private boolean matchesEvaluacion(String selectedEvaluacion, String tarea) {
+        switch (selectedEvaluacion) {
+            case "--":
+                return true;
+            case "Tarea":
+                String[] isTarea = tarea.split("\\[");
+                return isTarea[0].equals("Tarea ");
+            default:
+                return selectedEvaluacion.equals(tarea);
+        }
+    }
+    
     private void btnConsultarNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarNotasActionPerformed
         String courseSelected = (String) cmbBoxConsultaNotasCurso.getSelectedItem();
         String section = (String) cmbBoxConsultaNotasLetraSeccion.getSelectedItem();
         
         if (courseSelected == null || courseSelected.equals("--") || section == null || section.equals("--")) {
-            JOptionPane.showMessageDialog(this, "Seleccione curso y estudiante válidos");
+            JOptionPane.showMessageDialog(this, "Seleccione curso y seccion válidos");
             return;
         }
         
+        cmbBoxConsultaNotasEstudiante.setSelectedItem("--");
+        
         int idSeccion = encontrarIDSeccion(courseSelected, section);        
         gradeList = new ArrayList<>();
+        
         try {
             asignacionList = asignacionService.getAsignacionesBySection(idSeccion);
             courseStudentList = asignacionService.getStudentsBySection(idSeccion);
@@ -2109,48 +2182,93 @@ public class app extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(app.class.getName()).log(Level.SEVERE, null, ex);
         }
+           
+        DefaultTableModel model;
+        model = new DefaultTableModel(new String [] {"Nombre","Carnet","Tarea","Nota"}, 0);
+        tableGetUpdateNotes.setModel(model);
         
-         DefaultTableModel model;
-         model = new DefaultTableModel(new String [] {"Nombre","Carnet","Tarea","Nota"}, 0);
-         tableGetUpdateNotes.setModel(model);
-         
-         for(Grade g : gradeList){
-             int idAsignacion = g.getId_asignacion();
-             int idEstudiante = 0;
-             String nombre = null;
-             String apellido = null;
-             String carnet = null;
-             String tarea = g.getTipoEvaluacion();
-             BigDecimal nota = g.getNota();
+        vaciarCBX(cmbBoxConsultaNotasEstudiante);
+        for(Student s : courseStudentList){
+            cmbBoxConsultaNotasEstudiante.addItem(s.getCarnet());
+        }
+        updateGrade = new ArrayList<>();
+        
+        for(Grade g : gradeList){
+            int idAsignacion = g.getId_asignacion();
+            int idEstudiante = 0;
+            String nombre = null;
+            String apellido = null;
+            String carnet = null;
+            String tarea = g.getTipoEvaluacion();
+            BigDecimal nota = g.getNota();
              
-             for(Asignacion a : asignacionList){
-                 if(idAsignacion == a.getId_asignacion()){
-                     idEstudiante = a.getId_estudiante();
-                 }
-             }     
-             for(Student s: courseStudentList){
-                 if(idEstudiante == s.getId_estudiante()){
-                     nombre = s.getNombre();
-                     apellido = s.getApellido();
-                     carnet = s.getCarnet();
-                 }
-             }
+            for(Asignacion a : asignacionList){
+                if(idAsignacion == a.getId_asignacion()){
+                    idEstudiante = a.getId_estudiante();
+                }
+            }     
+            for(Student s: courseStudentList){
+                if(idEstudiante == s.getId_estudiante()){
+                    nombre = s.getNombre();
+                    apellido = s.getApellido();
+                    carnet = s.getCarnet();
+                }
+            }
             
             if(cmbBoxConsultaNotasEvaluacion.getSelectedItem().equals("--")){
                 model.addRow(new Object[]{nombre + " " +apellido, carnet, tarea, nota});
+                updateGrade.add(g);
             }else if(cmbBoxConsultaNotasEvaluacion.getSelectedItem().equals("Tarea")){  
                 String [] isTarea = tarea.split("\\[");  
                 if(isTarea[0].equals("Tarea ")){
                     model.addRow(new Object[]{nombre + " " +apellido, carnet, tarea, nota});
+                    updateGrade.add(g);
                 }
             }else{
                 if(cmbBoxConsultaNotasEvaluacion.getSelectedItem().equals(tarea)){
                     model.addRow(new Object[]{nombre + " " +apellido, carnet, tarea, nota});
+                    updateGrade.add(g);
                 }
-            }
-            
+            }        
          }
+
     }//GEN-LAST:event_btnConsultarNotasActionPerformed
+
+    private void btnUpdateGradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateGradeActionPerformed
+        // TODO add your handling code here:
+       for(int i = 0; i<updateGrade.size(); i++){ 
+           Grade nuevaNota = new Grade(); 
+           nuevaNota.setId_grado(updateGrade.get(i).getId_grado());
+           Object valor = tableGetUpdateNotes.getValueAt(i, 3);
+           if(valor instanceof BigDecimal){
+               nuevaNota.setNota((BigDecimal) tableGetUpdateNotes.getValueAt(i, 3)); 
+           }else{
+               nuevaNota.setNota(BigDecimal.valueOf(Double.parseDouble((String) tableGetUpdateNotes.getValueAt(i, 3))));
+           }    
+           nuevaNota.setTipoEvaluacion(updateGrade.get(i).getTipoEvaluacion()); 
+           nuevaNota.setId_asignacion(updateGrade.get(i).getId_asignacion()); 
+           nuevaNota.setFecha(updateGrade.get(i).getFecha());
+           
+           
+           try { 
+               if(isGradeValid(nuevaNota)){ 
+                   gradeService.updateGrade(updateGrade.get(i).getId_grado(), nuevaNota); 
+                }else{
+                    System.out.println("Grade invalid for id: " + nuevaNota.getId_grado() + ", value: " + nuevaNota.getNota());
+                } 
+           } catch (Exception ex){ 
+               JOptionPane.showMessageDialog(this, "Error al actualizr las notas: " + ex.getMessage());
+               return; 
+           } 
+       }
+
+        
+        JOptionPane.showMessageDialog(this, "Notas actualizadas correctamente.");
+        cmbBoxConsultaNotasCurso.setSelectedItem("--");
+        cmbBoxConsultaNotasLetraSeccion.setSelectedItem("--");
+        cmbBoxConsultaNotasEvaluacion.setSelectedItem("--");
+        cmbBoxConsultaNotasEstudiante.setSelectedItem("--");
+    }//GEN-LAST:event_btnUpdateGradeActionPerformed
     
     private boolean isGradeValid(Grade nota) throws Exception {
 
@@ -2158,7 +2276,10 @@ public class app extends javax.swing.JFrame {
     
     BigDecimal total = BigDecimal.ZERO;
     for (Grade grade : existingGrades) {
-        total = total.add(grade.getNota());
+        if(grade.getId_grado() != nota.getId_grado()){
+            total = total.add(grade.getNota());
+        }
+        
     }
     
     total = total.add(nota.getNota());
@@ -2426,6 +2547,8 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JButton btnConsultarTareas;
     private javax.swing.JButton btnCourseAddTarea;
     private javax.swing.JButton btnLoginLog;
+    private javax.swing.JButton btnSortGradesConsulta;
+    private javax.swing.JButton btnUpdateGrade;
     private javax.swing.JButton btnUpdateTarea;
     private javax.swing.JComboBox<String> cmbBoxAddGradeSeccion;
     private javax.swing.JComboBox<String> cmbBoxConsultaNotasCurso;
@@ -2443,8 +2566,6 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JPanel grades;
     private javax.swing.JPanel homework;
     private javax.swing.JPanel inSesion;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -2473,7 +2594,6 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2539,8 +2659,8 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrollPaneAddGradesTable;
     private javax.swing.JScrollPane scrollPaneDescripcionTarea;
     private javax.swing.JScrollPane scrollPaneGrades;
-    private javax.swing.JScrollPane scrollPaneTableAttendance2;
     private javax.swing.JScrollPane scrollPaneTeacherCourse;
+    private javax.swing.JScrollPane scrollTableConsultaNotas;
     private javax.swing.JScrollPane scrollTableCourseStudents;
     private javax.swing.JScrollPane scrollUpdateHomework;
     private javax.swing.JSpinner spinFechaEntrega;
@@ -2588,10 +2708,18 @@ public class app extends javax.swing.JFrame {
         }
         
         scrollPaneGrades.getVerticalScrollBar().setUI(new CustomScrollBarUI());
+        scrollTableConsultaNotas.getVerticalScrollBar().setUI(new CustomScrollBarUI());
+        
         DefaultTableModel model;
         model = new DefaultTableModel(new String [] {"Nombre","Carnet","Nota"}, 0);
         tableAddGrades.setModel(model);
+        
+        DefaultTableModel model2;
+        model2 = new DefaultTableModel(new String [] {"Nombre","Carnet","Tarea","Nota"}, 0);
+        tableGetUpdateNotes.setModel(model2);
+        
         tableAddGrades.getColumn("Nombre").setPreferredWidth(200);
         changeTableLook(tableAddGrades);
+        changeTableLook(tableGetUpdateNotes);
     }
 }
