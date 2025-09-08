@@ -15,7 +15,7 @@ import org.apache.hc.core5.http.ClassicHttpResponse;
 import org.apache.hc.core5.http.ContentType;
 
 public class GradeService {
-    private static final String BASE_URL = "https://sistema-de-notas-backend-1.onrender.com/api/grado";
+    private static final String BASE_URL = "https://sistema-de-notas-backend.onrender.com/api/grado";
     private static final ObjectMapper mapper = new ObjectMapper();
 
     public List<Grade> getGrades() throws Exception {
@@ -58,4 +58,14 @@ public class GradeService {
             return mapper.readValue(is, Grade.class);
         }
     }
+    
+    public List<Grade> getGradesByAsignacion(int idAsignacion) throws Exception {
+        try (CloseableHttpClient client = HttpClients.createDefault()) {
+            HttpGet request = new HttpGet(BASE_URL + "/by-asignacion/" + idAsignacion);
+            ClassicHttpResponse response = (ClassicHttpResponse) client.execute(request);
+            InputStream is = response.getEntity().getContent();
+            return mapper.readValue(is, new TypeReference<List<Grade>>() {});
+        }
+    }
+    
 }

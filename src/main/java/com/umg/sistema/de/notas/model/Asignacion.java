@@ -3,22 +3,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Asignacion {
-    private int id;
+    private int id_asignacion;
     private int id_estudiante;
-    private int id_curso;
+    private int id_seccion;
 
-    public Asignacion(int id, int id_estudiante, int id_curso) {
-        this.id = id;
-        this.id_estudiante = id_estudiante;
-        this.id_curso = id_curso;
+    public int getId_asignacion() {
+        return id_asignacion;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setId_asignacion(int id_asignacion) {
+        this.id_asignacion = id_asignacion;
     }
 
     public int getId_estudiante() {
@@ -29,13 +23,13 @@ public class Asignacion {
         this.id_estudiante = id_estudiante;
     }
 
-    public int getId_curso() {
-        return id_curso;
+    public int getId_seccion() {
+        return id_seccion;
     }
 
-    public void setId_curso(int id_curso) {
-        this.id_curso = id_curso;
+    public void setId_seccion(int id_seccion) {
+        this.id_seccion = id_seccion;
     }
-    
+
     
 }

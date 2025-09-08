@@ -15,7 +15,7 @@ import org.apache.hc.core5.http.ClassicHttpResponse;
 import org.apache.hc.core5.http.ContentType;
 
 public class AttendanceService {
-    private static final String BASE_URL = "https://sistema-de-notas-backend-1.onrender.com/api/asistencia";
+    private static final String BASE_URL = "https://sistema-de-notas-backend.onrender.com/api/asistencia";
     private static final ObjectMapper mapper = new ObjectMapper();
 
     public List<Attendance> getAttendances() throws Exception {

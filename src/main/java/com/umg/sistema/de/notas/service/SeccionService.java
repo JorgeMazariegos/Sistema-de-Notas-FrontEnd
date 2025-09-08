@@ -2,7 +2,7 @@ package com.umg.sistema.de.notas.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.umg.sistema.de.notas.model.Course;
+import com.umg.sistema.de.notas.model.Seccion;
 import java.io.InputStream;
 import java.util.List;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
@@ -14,20 +14,20 @@ import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.ClassicHttpResponse;
 import org.apache.hc.core5.http.ContentType;
 
-public class CurseService {
-    private static final String BASE_URL = "https://sistema-de-notas-backend-1.onrender.com/api/cursos";
+public class SeccionService {
+    private static final String BASE_URL = "https://sistema-de-notas-backend.onrender.com/api/seccion";
     private static final ObjectMapper mapper = new ObjectMapper();
 
-    public List<Course> getGrades() throws Exception {
+    public List<Seccion> getStudents() throws Exception {
         try (CloseableHttpClient client = HttpClients.createDefault()) {
             HttpGet request = new HttpGet(BASE_URL);
             ClassicHttpResponse response = (ClassicHttpResponse) client.execute(request);
             InputStream is = response.getEntity().getContent();
-            return mapper.readValue(is, new TypeReference<List<Course>>() {});
+            return mapper.readValue(is, new TypeReference<List<Seccion>>() {});
         }
     }
 
-    public Course createGrade(Course c) throws Exception {
+    public Seccion createStudent(Seccion c) throws Exception {
         try (CloseableHttpClient client = HttpClients.createDefault()) {
             HttpPost request = new HttpPost(BASE_URL + "/create");
             String json = mapper.writeValueAsString(c);
@@ -40,11 +40,11 @@ public class CurseService {
             ClassicHttpResponse response = (ClassicHttpResponse) 
             client.execute(request);
             InputStream is = response.getEntity().getContent();
-            return mapper.readValue(is, Course.class);
+            return mapper.readValue(is, Seccion.class);
         }
     }
     
-    public Course updateGrade(int id, Course c) throws Exception{
+    public Seccion updateStudent(int id, Seccion c) throws Exception{
         try(CloseableHttpClient client = HttpClients.createDefault()){
             HttpPut request = new HttpPut(BASE_URL + "/update/"+ id);
             String json = mapper.writeValueAsString(c);
@@ -55,7 +55,16 @@ public class CurseService {
             .build());
             ClassicHttpResponse response = (ClassicHttpResponse) client.execute(request);
             InputStream is = response.getEntity().getContent();
-            return mapper.readValue(is, Course.class);
+            return mapper.readValue(is, Seccion.class);
+        }
+    }
+    
+    public List<Seccion> getTeacherCourses(int idTeacher) throws Exception{
+        try (CloseableHttpClient client = HttpClients.createDefault()){
+            HttpGet request = new HttpGet(BASE_URL + "/teacher-courses/" + idTeacher);
+            ClassicHttpResponse response = (ClassicHttpResponse) client.execute(request);
+            InputStream is = response.getEntity().getContent();
+            return mapper.readValue(is, new TypeReference<List<Seccion>>() {});
         }
     }
 }

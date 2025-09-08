@@ -3,26 +3,17 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Course {
-    private int id;
+    private int id_curso;
     private String nombre;
     private String codigo;
     private String semestre;
-    private int id_profesor;
 
-    public Course(int id, String nombre, String codigo, String semestre, int id_profesor) {
-        this.id = id;
-        this.nombre = nombre;
-        this.codigo = codigo;
-        this.semestre = semestre;
-        this.id_profesor = id_profesor;
+    public int getId_curso() {
+        return id_curso;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setId_curso(int id_curso) {
+        this.id_curso = id_curso;
     }
 
     public String getNombre() {
@@ -49,13 +40,4 @@ public class Course {
         this.semestre = semestre;
     }
 
-    public int getId_profesor() {
-        return id_profesor;
-    }
-
-    public void setId_profesor(int id_profesor) {
-        this.id_profesor = id_profesor;
-    }
-    
-    
 }

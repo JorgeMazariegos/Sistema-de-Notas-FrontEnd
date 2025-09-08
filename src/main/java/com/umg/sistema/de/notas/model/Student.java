@@ -3,26 +3,19 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Student {
-    private int id;
+    private int id_estudiante;
     private String nombre;
+    private String apellido;
     private String email;
     private String carnet;
     private String telefono;
 
-    public Student(int id, String nombre, String email, String carnet, String telefono) {
-        this.id = id;
-        this.nombre = nombre;
-        this.email = email;
-        this.carnet = carnet;
-        this.telefono = telefono;
+    public int getId_estudiante() {
+        return id_estudiante;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setId_estudiante(int id_estudiante) {
+        this.id_estudiante = id_estudiante;
     }
 
     public String getNombre() {
@@ -31,6 +24,14 @@ public class Student {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getEmail() {
@@ -57,5 +58,15 @@ public class Student {
         this.telefono = telefono;
     }
     
-    
+    @Override
+    public String toString() {
+    return "Estudiante{" +
+           "id_estudiante=" + id_estudiante +
+           ", nombre='" + nombre + '\'' +
+           ", apellido='" + apellido + '\'' +
+           ", email='" + email + '\'' +
+           ", carnet='" + carnet + '\'' +
+           ", telefono='" + telefono + '\'' +
+           '}';
+}
 }

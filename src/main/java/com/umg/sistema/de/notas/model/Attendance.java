@@ -5,24 +5,17 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Attendance {
-    private int id;
+    private int id_asistencia;
     private int id_asignacion;
-    private Date fecha;
     private String estatus;
+    private Date fecha;
 
-    public Attendance(int id, int id_asignacion, Date fecha, String estatus) {
-        this.id = id;
-        this.id_asignacion = id_asignacion;
-        this.fecha = fecha;
-        this.estatus = estatus;
+    public int getId_asistencia() {
+        return id_asistencia;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setId_asistencia(int id_asistencia) {
+        this.id_asistencia = id_asistencia;
     }
 
     public int getId_asignacion() {
@@ -33,20 +26,20 @@ public class Attendance {
         this.id_asignacion = id_asignacion;
     }
 
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
     public String getEstatus() {
         return estatus;
     }
 
     public void setEstatus(String estatus) {
         this.estatus = estatus;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
     
 }

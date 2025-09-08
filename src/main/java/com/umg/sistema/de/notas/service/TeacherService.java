@@ -16,7 +16,7 @@ import java.io.InputStream;
 import java.util.List;
 
 public class TeacherService {
-    private static final String BASE_URL = "https://sistema-de-notas-backend-1.onrender.com/api/profesor";
+    private static final String BASE_URL = "https://sistema-de-notas-backend.onrender.com/api/profesor";
     private static final ObjectMapper mapper = new ObjectMapper();
 
     public List<Teacher> getTeachers() throws Exception {

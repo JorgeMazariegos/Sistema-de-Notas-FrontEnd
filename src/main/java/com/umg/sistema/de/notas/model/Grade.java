@@ -1,28 +1,31 @@
 package com.umg.sistema.de.notas.model;
 
 import java.util.Date;
+import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Grade {
-    private int id;
+    private int id_grado;
+    private BigDecimal nota;
     private String tipoEvaluacion;
     private int id_asignacion;
     private Date fecha;
 
-    public Grade(int id, String tipoEvaluacion, int id_asignacion, Date fecha) {
-        this.id = id;
-        this.tipoEvaluacion = tipoEvaluacion;
-        this.id_asignacion = id_asignacion;
-        this.fecha = fecha;
+    public int getId_grado() {
+        return id_grado;
     }
 
-    public int getId() {
-        return id;
+    public void setId_grado(int id_grado) {
+        this.id_grado = id_grado;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public BigDecimal getNota() {
+        return nota;
+    }
+
+    public void setNota(BigDecimal nota) {
+        this.nota = nota;
     }
 
     public String getTipoEvaluacion() {
@@ -48,6 +51,5 @@ public class Grade {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    
     
 }

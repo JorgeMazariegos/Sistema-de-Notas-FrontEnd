@@ -15,7 +15,7 @@ import org.apache.hc.core5.http.ClassicHttpResponse;
 import org.apache.hc.core5.http.ContentType;
 
 public class StudentService {
-    private static final String BASE_URL = "https://sistema-de-notas-backend-1.onrender.com/api/estudiante";
+    private static final String BASE_URL = "https://sistema-de-notas-backend.onrender.com/api/estudiante";
     private static final ObjectMapper mapper = new ObjectMapper();
 
     public List<Student> getStudents() throws Exception {

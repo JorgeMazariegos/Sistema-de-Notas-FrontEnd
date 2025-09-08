@@ -3,32 +3,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Teacher {
-    private int id;
+    private int id_profesor;
     private String nombre;
     private String email;
     private String especialidad;
     private String telefono;
     private String password;
+    private boolean estado;
 
-    public Teacher(){
-        
-    }
-    
-    public Teacher(int id, String nombre, String email, String especialidad, String telefono, String password) {
-        this.id = id;
-        this.nombre = nombre;
-        this.email = email;
-        this.especialidad = especialidad;
-        this.telefono = telefono;
-        this.password = password;
+    public int getId_profesor() {
+        return id_profesor;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setId_profesor(int id_profesor) {
+        this.id_profesor = id_profesor;
     }
 
     public String getNombre() {
@@ -70,9 +58,25 @@ public class Teacher {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }    
     
     @Override
-    public String toString(){
-        return "id: " + this.id + " nombre: " + this.nombre + " email:" + this.email;
-    }
+    public String toString() {
+    return "Profesional{" +
+            "id=" + id_profesor +
+            ", nombre='" + nombre + '\'' +
+            ", email='" + email + '\'' +
+            ", especialidad='" + especialidad + '\'' +
+            ", telefono='" + telefono + '\'' +
+            ", password='" + password + '\'' + // Masked for security
+            ", estado=" + estado +
+            '}';
+}
 }
