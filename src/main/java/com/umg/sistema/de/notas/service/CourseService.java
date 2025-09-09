@@ -18,7 +18,7 @@ public class CourseService {
     private static final String BASE_URL = "https://sistema-de-notas-backend.onrender.com/api/cursos";
     private static final ObjectMapper mapper = new ObjectMapper();
 
-    public List<Course> getGrades() throws Exception {
+    public List<Course> getCourses() throws Exception {
         try (CloseableHttpClient client = HttpClients.createDefault()) {
             HttpGet request = new HttpGet(BASE_URL);
             ClassicHttpResponse response = (ClassicHttpResponse) client.execute(request);
@@ -27,7 +27,7 @@ public class CourseService {
         }
     }
 
-    public Course createGrade(Course c) throws Exception {
+    public Course createCourse(Course c) throws Exception {
         try (CloseableHttpClient client = HttpClients.createDefault()) {
             HttpPost request = new HttpPost(BASE_URL + "/create");
             String json = mapper.writeValueAsString(c);
@@ -44,7 +44,7 @@ public class CourseService {
         }
     }
     
-    public Course updateGrade(int id, Course c) throws Exception{
+    public Course updateCourse(int id, Course c) throws Exception{
         try(CloseableHttpClient client = HttpClients.createDefault()){
             HttpPut request = new HttpPut(BASE_URL + "/update/"+ id);
             String json = mapper.writeValueAsString(c);
