@@ -65,6 +65,7 @@ public class app extends javax.swing.JFrame {
     
     //Variables globales
     int currentOpaqueLabel = 1;
+    int currentAdminOpaqueLabel = 1;
     boolean showPassword = false;
     
     //Informacion del usuario que inicio sesion
@@ -258,10 +259,9 @@ public class app extends javax.swing.JFrame {
         btnSortGradesConsulta = new javax.swing.JButton();
         adminApp = new javax.swing.JPanel();
         pnlAdminTop = new javax.swing.JPanel();
-        lblTeacherTopInfo1 = new javax.swing.JLabel();
+        lblAdminTopInfo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         pnlAdminInfo = new javax.swing.JPanel();
-        lblAdminShowDashboard = new javax.swing.JLabel();
         lblAdminLogOut = new javax.swing.JLabel();
         lblAdminShowProfesores = new javax.swing.JLabel();
         lblAdminShowEstudiantes = new javax.swing.JLabel();
@@ -269,29 +269,8 @@ public class app extends javax.swing.JFrame {
         lblAdminShowSecciones = new javax.swing.JLabel();
         lblAdminShowAsignaciones = new javax.swing.JLabel();
         pnlAdminContent = new javax.swing.JPanel();
-        dashboardAdmin = new javax.swing.JPanel();
-        lblDashboardTitleCursos1 = new javax.swing.JLabel();
-        pnlDashboardCourse7 = new javax.swing.JPanel();
-        lblDashboardCourse7 = new javax.swing.JLabel();
-        lblSeccion7 = new javax.swing.JLabel();
-        pnlDashboardCourse8 = new javax.swing.JPanel();
-        lblDashboardCourse8 = new javax.swing.JLabel();
-        lblSeccion8 = new javax.swing.JLabel();
-        pnlDashboardCourse9 = new javax.swing.JPanel();
-        lblDashboardCourse9 = new javax.swing.JLabel();
-        lblSeccion9 = new javax.swing.JLabel();
-        pnlDashboardCourse10 = new javax.swing.JPanel();
-        lblDashboardCourse10 = new javax.swing.JLabel();
-        lblSeccion10 = new javax.swing.JLabel();
-        pnlDashboardCourse11 = new javax.swing.JPanel();
-        lblDashboardCourse11 = new javax.swing.JLabel();
-        lblSeccion11 = new javax.swing.JLabel();
-        pnlDashboardCourse12 = new javax.swing.JPanel();
-        lblDashboardCourse12 = new javax.swing.JLabel();
-        lblSeccion12 = new javax.swing.JLabel();
-        jSeparator7 = new javax.swing.JSeparator();
         profesoresCRUD = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tabPaneMaestroCRUD = new javax.swing.JTabbedPane();
         Agregar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -582,6 +561,7 @@ public class app extends javax.swing.JFrame {
 
         lblTeacherTopInfo.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
         lblTeacherTopInfo.setForeground(new java.awt.Color(236, 231, 220));
+        lblTeacherTopInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTeacherTopInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard.png"))); // NOI18N
         lblTeacherTopInfo.setText("Dashboard");
         lblTeacherTopInfo.setMaximumSize(new java.awt.Dimension(93, 30));
@@ -599,9 +579,9 @@ public class app extends javax.swing.JFrame {
             .addGroup(pnlTeacherTopLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(255, 255, 255)
-                .addComponent(lblTeacherTopInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(313, Short.MAX_VALUE))
+                .addGap(171, 171, 171)
+                .addComponent(lblTeacherTopInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(254, Short.MAX_VALUE))
         );
         pnlTeacherTopLayout.setVerticalGroup(
             pnlTeacherTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -635,7 +615,7 @@ public class app extends javax.swing.JFrame {
             }
         });
 
-        lblTeacherLogOut.setBackground(new java.awt.Color(35, 151, 155));
+        lblTeacherLogOut.setBackground(new java.awt.Color(51, 0, 0));
         lblTeacherLogOut.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         lblTeacherLogOut.setForeground(new java.awt.Color(255, 102, 102));
         lblTeacherLogOut.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -657,7 +637,7 @@ public class app extends javax.swing.JFrame {
         lblTeacherShowGrades.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         lblTeacherShowGrades.setForeground(new java.awt.Color(252, 255, 252));
         lblTeacherShowGrades.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblTeacherShowGrades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconTeacherAttendance.png"))); // NOI18N
+        lblTeacherShowGrades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grades.png"))); // NOI18N
         lblTeacherShowGrades.setText("Notas");
         lblTeacherShowGrades.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -675,7 +655,7 @@ public class app extends javax.swing.JFrame {
         lblTeacherShowHomework.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         lblTeacherShowHomework.setForeground(new java.awt.Color(252, 255, 252));
         lblTeacherShowHomework.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblTeacherShowHomework.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconTeacherAttendance.png"))); // NOI18N
+        lblTeacherShowHomework.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homework.png"))); // NOI18N
         lblTeacherShowHomework.setText("Tareas");
         lblTeacherShowHomework.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -712,9 +692,9 @@ public class app extends javax.swing.JFrame {
                 .addComponent(lblTeacherShowGrades, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTeacherShowHomework, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTeacherLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(401, Short.MAX_VALUE))
+                .addContainerGap(413, Short.MAX_VALUE))
         );
 
         teacherApp.add(pnlTeacherInfo);
@@ -727,6 +707,7 @@ public class app extends javax.swing.JFrame {
 
         lblDashboardTitleCursos.setBackground(new java.awt.Color(255, 255, 255));
         lblDashboardTitleCursos.setFont(new java.awt.Font("Sitka Heading", 1, 36)); // NOI18N
+        lblDashboardTitleCursos.setForeground(new java.awt.Color(51, 51, 51));
         lblDashboardTitleCursos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDashboardTitleCursos.setText("Cursos");
         lblDashboardTitleCursos.setToolTipText("");
@@ -737,24 +718,30 @@ public class app extends javax.swing.JFrame {
         pnlDashboardCourse4.setPreferredSize(new java.awt.Dimension(170, 100));
 
         lblDashboardCourse4.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        lblDashboardCourse4.setForeground(new java.awt.Color(51, 51, 51));
         lblDashboardCourse4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDashboardCourse4.setText("Curso 4");
+        lblDashboardCourse4.setText("--");
+        lblDashboardCourse4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDashboardCourse4MouseClicked(evt);
+            }
+        });
 
         lblSeccion4.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
-        lblSeccion4.setText("Seccion");
+        lblSeccion4.setForeground(new java.awt.Color(51, 51, 51));
+        lblSeccion4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSeccion4.setText("--");
 
         javax.swing.GroupLayout pnlDashboardCourse4Layout = new javax.swing.GroupLayout(pnlDashboardCourse4);
         pnlDashboardCourse4.setLayout(pnlDashboardCourse4Layout);
         pnlDashboardCourse4Layout.setHorizontalGroup(
             pnlDashboardCourse4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDashboardCourse4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDashboardCourse4, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(pnlDashboardCourse4Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(lblSeccion4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(pnlDashboardCourse4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSeccion4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDashboardCourse4, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
+                .addContainerGap())
         );
         pnlDashboardCourse4Layout.setVerticalGroup(
             pnlDashboardCourse4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -771,11 +758,19 @@ public class app extends javax.swing.JFrame {
         pnlDashboardCourse5.setPreferredSize(new java.awt.Dimension(170, 100));
 
         lblDashboardCourse5.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        lblDashboardCourse5.setForeground(new java.awt.Color(51, 51, 51));
         lblDashboardCourse5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDashboardCourse5.setText("Curso 5");
+        lblDashboardCourse5.setText("--");
+        lblDashboardCourse5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDashboardCourse5MouseClicked(evt);
+            }
+        });
 
         lblSeccion5.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
-        lblSeccion5.setText("Seccion");
+        lblSeccion5.setForeground(new java.awt.Color(51, 51, 51));
+        lblSeccion5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSeccion5.setText("--");
 
         javax.swing.GroupLayout pnlDashboardCourse5Layout = new javax.swing.GroupLayout(pnlDashboardCourse5);
         pnlDashboardCourse5.setLayout(pnlDashboardCourse5Layout);
@@ -783,12 +778,10 @@ public class app extends javax.swing.JFrame {
             pnlDashboardCourse5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDashboardCourse5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblDashboardCourse5, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addGroup(pnlDashboardCourse5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSeccion5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDashboardCourse5, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(pnlDashboardCourse5Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(lblSeccion5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlDashboardCourse5Layout.setVerticalGroup(
             pnlDashboardCourse5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -806,11 +799,19 @@ public class app extends javax.swing.JFrame {
         pnlDashboardCourse6.setPreferredSize(new java.awt.Dimension(170, 100));
 
         lblDashboardCourse6.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        lblDashboardCourse6.setForeground(new java.awt.Color(51, 51, 51));
         lblDashboardCourse6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDashboardCourse6.setText("Curso 6");
+        lblDashboardCourse6.setText("--");
+        lblDashboardCourse6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDashboardCourse6MouseClicked(evt);
+            }
+        });
 
         lblSeccion6.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
-        lblSeccion6.setText("Seccion");
+        lblSeccion6.setForeground(new java.awt.Color(51, 51, 51));
+        lblSeccion6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSeccion6.setText("--");
 
         javax.swing.GroupLayout pnlDashboardCourse6Layout = new javax.swing.GroupLayout(pnlDashboardCourse6);
         pnlDashboardCourse6.setLayout(pnlDashboardCourse6Layout);
@@ -818,12 +819,10 @@ public class app extends javax.swing.JFrame {
             pnlDashboardCourse6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDashboardCourse6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblDashboardCourse6, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addGroup(pnlDashboardCourse6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSeccion6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDashboardCourse6, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDashboardCourse6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblSeccion6)
-                .addGap(60, 60, 60))
         );
         pnlDashboardCourse6Layout.setVerticalGroup(
             pnlDashboardCourse6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -840,8 +839,9 @@ public class app extends javax.swing.JFrame {
         pnlDashboardCourse1.setPreferredSize(new java.awt.Dimension(170, 100));
 
         lblDashboardCourse1.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        lblDashboardCourse1.setForeground(new java.awt.Color(51, 51, 51));
         lblDashboardCourse1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDashboardCourse1.setText("Curso 1");
+        lblDashboardCourse1.setText("--");
         lblDashboardCourse1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblDashboardCourse1MouseClicked(evt);
@@ -849,7 +849,9 @@ public class app extends javax.swing.JFrame {
         });
 
         lblSeccion1.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
-        lblSeccion1.setText("Seccion");
+        lblSeccion1.setForeground(new java.awt.Color(51, 51, 51));
+        lblSeccion1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSeccion1.setText("--");
 
         javax.swing.GroupLayout pnlDashboardCourse1Layout = new javax.swing.GroupLayout(pnlDashboardCourse1);
         pnlDashboardCourse1.setLayout(pnlDashboardCourse1Layout);
@@ -857,12 +859,10 @@ public class app extends javax.swing.JFrame {
             pnlDashboardCourse1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDashboardCourse1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblDashboardCourse1, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addGroup(pnlDashboardCourse1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSeccion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDashboardCourse1, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(pnlDashboardCourse1Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(lblSeccion1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlDashboardCourse1Layout.setVerticalGroup(
             pnlDashboardCourse1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -879,8 +879,9 @@ public class app extends javax.swing.JFrame {
         pnlDashboardCourse2.setPreferredSize(new java.awt.Dimension(170, 100));
 
         lblDashboardCourse2.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        lblDashboardCourse2.setForeground(new java.awt.Color(51, 51, 51));
         lblDashboardCourse2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDashboardCourse2.setText("Curso 2");
+        lblDashboardCourse2.setText("--");
         lblDashboardCourse2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblDashboardCourse2MouseClicked(evt);
@@ -888,7 +889,9 @@ public class app extends javax.swing.JFrame {
         });
 
         lblSeccion2.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
-        lblSeccion2.setText("Seccion");
+        lblSeccion2.setForeground(new java.awt.Color(51, 51, 51));
+        lblSeccion2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSeccion2.setText("--");
 
         javax.swing.GroupLayout pnlDashboardCourse2Layout = new javax.swing.GroupLayout(pnlDashboardCourse2);
         pnlDashboardCourse2.setLayout(pnlDashboardCourse2Layout);
@@ -896,12 +899,10 @@ public class app extends javax.swing.JFrame {
             pnlDashboardCourse2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDashboardCourse2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblDashboardCourse2, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addGroup(pnlDashboardCourse2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSeccion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDashboardCourse2, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(pnlDashboardCourse2Layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(lblSeccion2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlDashboardCourse2Layout.setVerticalGroup(
             pnlDashboardCourse2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -919,11 +920,19 @@ public class app extends javax.swing.JFrame {
         pnlDashboardCourse3.setPreferredSize(new java.awt.Dimension(170, 100));
 
         lblDashboardCourse3.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        lblDashboardCourse3.setForeground(new java.awt.Color(51, 51, 51));
         lblDashboardCourse3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDashboardCourse3.setText("Curso 3");
+        lblDashboardCourse3.setText("--");
+        lblDashboardCourse3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDashboardCourse3MouseClicked(evt);
+            }
+        });
 
         lblSeccion3.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
-        lblSeccion3.setText("Seccion");
+        lblSeccion3.setForeground(new java.awt.Color(51, 51, 51));
+        lblSeccion3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSeccion3.setText("--");
 
         javax.swing.GroupLayout pnlDashboardCourse3Layout = new javax.swing.GroupLayout(pnlDashboardCourse3);
         pnlDashboardCourse3.setLayout(pnlDashboardCourse3Layout);
@@ -931,12 +940,10 @@ public class app extends javax.swing.JFrame {
             pnlDashboardCourse3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDashboardCourse3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblDashboardCourse3, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addGroup(pnlDashboardCourse3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDashboardCourse3, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                    .addComponent(lblSeccion3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(pnlDashboardCourse3Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(lblSeccion3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlDashboardCourse3Layout.setVerticalGroup(
             pnlDashboardCourse3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -999,25 +1006,33 @@ public class app extends javax.swing.JFrame {
         tabbedPaneHomework.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
         tabbedPaneHomework.setName(""); // NOI18N
 
+        pnlAddHomework.setBackground(new java.awt.Color(35, 151, 155));
+
         jLabel40.setFont(new java.awt.Font("Sitka Heading", 1, 36)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(51, 51, 51));
         jLabel40.setText("Agregar Tarea");
 
         jLabel44.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(51, 51, 51));
         jLabel44.setText("Curso:");
 
         cmbBoxHomeworkCourses.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
         cmbBoxHomeworkCourses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--" }));
 
         jLabel45.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(51, 51, 51));
         jLabel45.setText("Sección:");
 
         jLabel46.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(51, 51, 51));
         jLabel46.setText("Titulo:");
 
         jLabel47.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(51, 51, 51));
         jLabel47.setText("Descripcion:");
 
         jLabel48.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(51, 51, 51));
         jLabel48.setText("Fecha de entrega:");
 
         txtAgregarTareaTitulo.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
@@ -1081,7 +1096,7 @@ public class app extends javax.swing.JFrame {
                     .addGroup(pnlAddHomeworkLayout.createSequentialGroup()
                         .addGap(184, 184, 184)
                         .addComponent(jLabel40)))
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         pnlAddHomeworkLayout.setVerticalGroup(
             pnlAddHomeworkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1110,18 +1125,25 @@ public class app extends javax.swing.JFrame {
                     .addComponent(spinFechaEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnAgregarTarea)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         tabbedPaneHomework.addTab("Agregar / Consultar", pnlAddHomework);
 
+        pnlUpdateHomework.setBackground(new java.awt.Color(35, 151, 155));
+
         jLabel65.setFont(new java.awt.Font("Sitka Heading", 1, 36)); // NOI18N
+        jLabel65.setForeground(new java.awt.Color(51, 51, 51));
         jLabel65.setText("Actualizar Tarea");
 
+        jLabel66.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel66.setForeground(new java.awt.Color(51, 51, 51));
         jLabel66.setText("Curso:");
 
         cmbBoxUpdateHomeworkCourses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--" }));
 
+        jLabel67.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel67.setForeground(new java.awt.Color(51, 51, 51));
         jLabel67.setText("Sección:");
 
         cmbBoxUpdateHomeworkSection.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--" }));
@@ -1135,8 +1157,12 @@ public class app extends javax.swing.JFrame {
 
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        jLabel68.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel68.setForeground(new java.awt.Color(51, 51, 51));
         jLabel68.setText("Titulo:");
 
+        jLabel69.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel69.setForeground(new java.awt.Color(51, 51, 51));
         jLabel69.setText("Descripción:");
 
         txtAreaUpdateTareaDescripcion.setColumns(20);
@@ -1145,10 +1171,16 @@ public class app extends javax.swing.JFrame {
         txtAreaUpdateTareaDescripcion.setWrapStyleWord(true);
         scrollUpdateHomework.setViewportView(txtAreaUpdateTareaDescripcion);
 
+        jLabel70.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel70.setForeground(new java.awt.Color(51, 51, 51));
         jLabel70.setText("Fecha de asignación:");
 
+        lblUpdateFechaAsignacion.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        lblUpdateFechaAsignacion.setForeground(new java.awt.Color(51, 51, 51));
         lblUpdateFechaAsignacion.setText("--");
 
+        jLabel71.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel71.setForeground(new java.awt.Color(51, 51, 51));
         jLabel71.setText("Fecha de entrega:");
 
         spinnerUpdateTareaFechaEntrega.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -1161,6 +1193,7 @@ public class app extends javax.swing.JFrame {
             }
         });
 
+        btnConsultarTareas.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
         btnConsultarTareas.setText("Buscar tareas");
         btnConsultarTareas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1251,7 +1284,7 @@ public class app extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUpdateHomeworkLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         tabbedPaneHomework.addTab("tab2", pnlUpdateHomework);
@@ -1261,14 +1294,12 @@ public class app extends javax.swing.JFrame {
         homeworkLayout.setHorizontalGroup(
             homeworkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeworkLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(tabbedPaneHomework)
                 .addContainerGap())
         );
         homeworkLayout.setVerticalGroup(
             homeworkLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeworkLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(tabbedPaneHomework)
                 .addContainerGap())
         );
@@ -1277,35 +1308,45 @@ public class app extends javax.swing.JFrame {
 
         pnlTeacherContent.add(homework, "teacherHomework");
 
+        scrollPaneTeacherCourse.setForeground(new java.awt.Color(51, 51, 51));
         scrollPaneTeacherCourse.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPaneTeacherCourse.setPreferredSize(new java.awt.Dimension(560, 802));
 
+        course.setBackground(new java.awt.Color(35, 151, 155));
         course.setPreferredSize(new java.awt.Dimension(560, 800));
 
         lblCoursePageTitle.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
+        lblCoursePageTitle.setForeground(new java.awt.Color(51, 51, 51));
         lblCoursePageTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCoursePageTitle.setText("COURSE TITLE");
 
         lblCoursePSeccion.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        lblCoursePSeccion.setForeground(new java.awt.Color(51, 51, 51));
         lblCoursePSeccion.setText("Sección:");
 
         lblCoursePCodigo.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        lblCoursePCodigo.setForeground(new java.awt.Color(51, 51, 51));
         lblCoursePCodigo.setText("Código:");
 
         lblCourseCode.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        lblCourseCode.setForeground(new java.awt.Color(51, 51, 51));
         lblCourseCode.setText("--");
 
         lblCourseSeccion.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        lblCourseSeccion.setForeground(new java.awt.Color(51, 51, 51));
         lblCourseSeccion.setText("--");
 
         jLabel39.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(51, 51, 51));
         jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel39.setText("Tareas");
 
         lblCoursePCodigo1.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        lblCoursePCodigo1.setForeground(new java.awt.Color(51, 51, 51));
         lblCoursePCodigo1.setText("Semestre:");
 
         lblCourseSemester.setFont(new java.awt.Font("Sitka Small", 0, 14)); // NOI18N
+        lblCourseSemester.setForeground(new java.awt.Color(51, 51, 51));
         lblCourseSemester.setText("--");
 
         tableCourseTareaList.setModel(new javax.swing.table.DefaultTableModel(
@@ -1329,6 +1370,7 @@ public class app extends javax.swing.JFrame {
         });
 
         jLabel41.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(51, 51, 51));
         jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel41.setText("Alumnos");
 
@@ -1417,6 +1459,9 @@ public class app extends javax.swing.JFrame {
 
         scrollPaneGrades.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        grades.setBackground(new java.awt.Color(62, 66, 68));
+
+        tabbedPaneNotas.setBackground(new java.awt.Color(62, 66, 68));
         tabbedPaneNotas.setFont(new java.awt.Font("Sitka Text", 1, 12)); // NOI18N
 
         pnlAttendanceAdd1.setBackground(new java.awt.Color(35, 151, 155));
@@ -1784,17 +1829,18 @@ public class app extends javax.swing.JFrame {
         pnlAdminTop.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnlAdminTop.setForeground(new java.awt.Color(255, 255, 255));
 
-        lblTeacherTopInfo1.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
-        lblTeacherTopInfo1.setForeground(new java.awt.Color(236, 231, 220));
-        lblTeacherTopInfo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard.png"))); // NOI18N
-        lblTeacherTopInfo1.setText("Dashboard");
-        lblTeacherTopInfo1.setMaximumSize(new java.awt.Dimension(93, 30));
-        lblTeacherTopInfo1.setMinimumSize(new java.awt.Dimension(93, 30));
-        lblTeacherTopInfo1.setPreferredSize(new java.awt.Dimension(93, 30));
+        lblAdminTopInfo.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        lblAdminTopInfo.setForeground(new java.awt.Color(236, 231, 220));
+        lblAdminTopInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAdminTopInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dashboard.png"))); // NOI18N
+        lblAdminTopInfo.setText("Dashboard");
+        lblAdminTopInfo.setMaximumSize(new java.awt.Dimension(93, 30));
+        lblAdminTopInfo.setMinimumSize(new java.awt.Dimension(93, 30));
+        lblAdminTopInfo.setPreferredSize(new java.awt.Dimension(93, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Profesor");
+        jLabel5.setText("Administrador");
 
         javax.swing.GroupLayout pnlAdminTopLayout = new javax.swing.GroupLayout(pnlAdminTop);
         pnlAdminTop.setLayout(pnlAdminTopLayout);
@@ -1803,14 +1849,14 @@ public class app extends javax.swing.JFrame {
             .addGroup(pnlAdminTopLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(255, 255, 255)
-                .addComponent(lblTeacherTopInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(313, Short.MAX_VALUE))
+                .addGap(134, 134, 134)
+                .addComponent(lblAdminTopInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(216, Short.MAX_VALUE))
         );
         pnlAdminTopLayout.setVerticalGroup(
             pnlAdminTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAdminTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(lblTeacherTopInfo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblAdminTopInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5))
         );
 
@@ -1819,27 +1865,7 @@ public class app extends javax.swing.JFrame {
 
         pnlAdminInfo.setBackground(new java.awt.Color(53, 36, 97));
 
-        lblAdminShowDashboard.setBackground(new java.awt.Color(35, 151, 155));
-        lblAdminShowDashboard.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
-        lblAdminShowDashboard.setForeground(new java.awt.Color(252, 255, 252));
-        lblAdminShowDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblAdminShowDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconTeacherDashboard.png"))); // NOI18N
-        lblAdminShowDashboard.setText("Dashboard");
-        lblAdminShowDashboard.setFocusable(false);
-        lblAdminShowDashboard.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        lblAdminShowDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblAdminShowDashboardMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lblAdminShowDashboardMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lblAdminShowDashboardMouseExited(evt);
-            }
-        });
-
-        lblAdminLogOut.setBackground(new java.awt.Color(35, 151, 155));
+        lblAdminLogOut.setBackground(new java.awt.Color(51, 0, 0));
         lblAdminLogOut.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         lblAdminLogOut.setForeground(new java.awt.Color(255, 102, 102));
         lblAdminLogOut.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1861,7 +1887,7 @@ public class app extends javax.swing.JFrame {
         lblAdminShowProfesores.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         lblAdminShowProfesores.setForeground(new java.awt.Color(252, 255, 252));
         lblAdminShowProfesores.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblAdminShowProfesores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconTeacherAttendance.png"))); // NOI18N
+        lblAdminShowProfesores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/teacher.png"))); // NOI18N
         lblAdminShowProfesores.setText("Profesores");
         lblAdminShowProfesores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1879,7 +1905,7 @@ public class app extends javax.swing.JFrame {
         lblAdminShowEstudiantes.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         lblAdminShowEstudiantes.setForeground(new java.awt.Color(252, 255, 252));
         lblAdminShowEstudiantes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblAdminShowEstudiantes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconTeacherAttendance.png"))); // NOI18N
+        lblAdminShowEstudiantes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student.png"))); // NOI18N
         lblAdminShowEstudiantes.setText("Estudiantes");
         lblAdminShowEstudiantes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1897,7 +1923,7 @@ public class app extends javax.swing.JFrame {
         lblAdminShowCursos.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         lblAdminShowCursos.setForeground(new java.awt.Color(252, 255, 252));
         lblAdminShowCursos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblAdminShowCursos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconTeacherAttendance.png"))); // NOI18N
+        lblAdminShowCursos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/courses.png"))); // NOI18N
         lblAdminShowCursos.setText("Cursos");
         lblAdminShowCursos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1915,7 +1941,7 @@ public class app extends javax.swing.JFrame {
         lblAdminShowSecciones.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         lblAdminShowSecciones.setForeground(new java.awt.Color(252, 255, 252));
         lblAdminShowSecciones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblAdminShowSecciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconTeacherAttendance.png"))); // NOI18N
+        lblAdminShowSecciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/seccion.png"))); // NOI18N
         lblAdminShowSecciones.setText("Secciones");
         lblAdminShowSecciones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1933,7 +1959,7 @@ public class app extends javax.swing.JFrame {
         lblAdminShowAsignaciones.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         lblAdminShowAsignaciones.setForeground(new java.awt.Color(252, 255, 252));
         lblAdminShowAsignaciones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblAdminShowAsignaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconTeacherAttendance.png"))); // NOI18N
+        lblAdminShowAsignaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asignacion.png"))); // NOI18N
         lblAdminShowAsignaciones.setText("Asignaciones");
         lblAdminShowAsignaciones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1952,42 +1978,31 @@ public class app extends javax.swing.JFrame {
         pnlAdminInfoLayout.setHorizontalGroup(
             pnlAdminInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAdminInfoLayout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addContainerGap()
                 .addGroup(pnlAdminInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAdminShowDashboard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                    .addComponent(lblAdminLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                    .addComponent(lblAdminShowAsignaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblAdminShowProfesores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblAdminShowCursos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(pnlAdminInfoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblAdminLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pnlAdminInfoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblAdminShowAsignaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pnlAdminInfoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlAdminInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAdminShowSecciones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblAdminShowEstudiantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(lblAdminShowEstudiantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAdminShowCursos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAdminShowSecciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         pnlAdminInfoLayout.setVerticalGroup(
             pnlAdminInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAdminInfoLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(lblAdminShowDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(31, 31, 31)
                 .addComponent(lblAdminShowProfesores, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAdminShowEstudiantes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAdminShowCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAdminShowSecciones, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAdminShowAsignaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAdminLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addContainerGap(329, Short.MAX_VALUE))
         );
 
         adminApp.add(pnlAdminInfo);
@@ -1996,295 +2011,37 @@ public class app extends javax.swing.JFrame {
         pnlAdminContent.setBackground(new java.awt.Color(35, 151, 155));
         pnlAdminContent.setLayout(new java.awt.CardLayout());
 
-        dashboardAdmin.setBackground(new java.awt.Color(35, 151, 155));
+        profesoresCRUD.setBackground(new java.awt.Color(35, 151, 155));
+        profesoresCRUD.setForeground(new java.awt.Color(35, 151, 155));
 
-        lblDashboardTitleCursos1.setBackground(new java.awt.Color(255, 255, 255));
-        lblDashboardTitleCursos1.setFont(new java.awt.Font("Sitka Heading", 1, 36)); // NOI18N
-        lblDashboardTitleCursos1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDashboardTitleCursos1.setText("Cursos");
-        lblDashboardTitleCursos1.setToolTipText("");
-        lblDashboardTitleCursos1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        tabPaneMaestroCRUD.setBackground(new java.awt.Color(236, 231, 220));
+        tabPaneMaestroCRUD.setForeground(new java.awt.Color(51, 51, 51));
+        tabPaneMaestroCRUD.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
 
-        pnlDashboardCourse7.setBackground(new java.awt.Color(236, 231, 220));
-        pnlDashboardCourse7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(15, 15, 11), 1, true));
-        pnlDashboardCourse7.setPreferredSize(new java.awt.Dimension(170, 100));
-
-        lblDashboardCourse7.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
-        lblDashboardCourse7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDashboardCourse7.setText("Curso 4");
-
-        lblSeccion7.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
-        lblSeccion7.setText("Seccion");
-
-        javax.swing.GroupLayout pnlDashboardCourse7Layout = new javax.swing.GroupLayout(pnlDashboardCourse7);
-        pnlDashboardCourse7.setLayout(pnlDashboardCourse7Layout);
-        pnlDashboardCourse7Layout.setHorizontalGroup(
-            pnlDashboardCourse7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDashboardCourse7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDashboardCourse7, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(pnlDashboardCourse7Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(lblSeccion7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnlDashboardCourse7Layout.setVerticalGroup(
-            pnlDashboardCourse7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDashboardCourse7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDashboardCourse7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSeccion7)
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
-
-        pnlDashboardCourse8.setBackground(new java.awt.Color(236, 231, 220));
-        pnlDashboardCourse8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(15, 15, 11), 1, true));
-        pnlDashboardCourse8.setPreferredSize(new java.awt.Dimension(170, 100));
-
-        lblDashboardCourse8.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
-        lblDashboardCourse8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDashboardCourse8.setText("Curso 5");
-
-        lblSeccion8.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
-        lblSeccion8.setText("Seccion");
-
-        javax.swing.GroupLayout pnlDashboardCourse8Layout = new javax.swing.GroupLayout(pnlDashboardCourse8);
-        pnlDashboardCourse8.setLayout(pnlDashboardCourse8Layout);
-        pnlDashboardCourse8Layout.setHorizontalGroup(
-            pnlDashboardCourse8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDashboardCourse8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDashboardCourse8, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(pnlDashboardCourse8Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(lblSeccion8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnlDashboardCourse8Layout.setVerticalGroup(
-            pnlDashboardCourse8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDashboardCourse8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDashboardCourse8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSeccion8)
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
-
-        pnlDashboardCourse9.setBackground(new java.awt.Color(236, 231, 220));
-        pnlDashboardCourse9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(15, 15, 11), 1, true));
-        pnlDashboardCourse9.setForeground(new java.awt.Color(19, 122, 127));
-        pnlDashboardCourse9.setPreferredSize(new java.awt.Dimension(170, 100));
-
-        lblDashboardCourse9.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
-        lblDashboardCourse9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDashboardCourse9.setText("Curso 6");
-
-        lblSeccion9.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
-        lblSeccion9.setText("Seccion");
-
-        javax.swing.GroupLayout pnlDashboardCourse9Layout = new javax.swing.GroupLayout(pnlDashboardCourse9);
-        pnlDashboardCourse9.setLayout(pnlDashboardCourse9Layout);
-        pnlDashboardCourse9Layout.setHorizontalGroup(
-            pnlDashboardCourse9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDashboardCourse9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDashboardCourse9, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDashboardCourse9Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblSeccion9)
-                .addGap(60, 60, 60))
-        );
-        pnlDashboardCourse9Layout.setVerticalGroup(
-            pnlDashboardCourse9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDashboardCourse9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDashboardCourse9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSeccion9)
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
-
-        pnlDashboardCourse10.setBackground(new java.awt.Color(236, 231, 220));
-        pnlDashboardCourse10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(15, 15, 11), 1, true));
-        pnlDashboardCourse10.setPreferredSize(new java.awt.Dimension(170, 100));
-
-        lblDashboardCourse10.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
-        lblDashboardCourse10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDashboardCourse10.setText("Curso 1");
-        lblDashboardCourse10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblDashboardCourse10MouseClicked(evt);
-            }
-        });
-
-        lblSeccion10.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
-        lblSeccion10.setText("Seccion");
-
-        javax.swing.GroupLayout pnlDashboardCourse10Layout = new javax.swing.GroupLayout(pnlDashboardCourse10);
-        pnlDashboardCourse10.setLayout(pnlDashboardCourse10Layout);
-        pnlDashboardCourse10Layout.setHorizontalGroup(
-            pnlDashboardCourse10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDashboardCourse10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDashboardCourse10, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(pnlDashboardCourse10Layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(lblSeccion10)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnlDashboardCourse10Layout.setVerticalGroup(
-            pnlDashboardCourse10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDashboardCourse10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDashboardCourse10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSeccion10)
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
-
-        pnlDashboardCourse11.setBackground(new java.awt.Color(236, 231, 220));
-        pnlDashboardCourse11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(15, 15, 11), 1, true));
-        pnlDashboardCourse11.setPreferredSize(new java.awt.Dimension(170, 100));
-
-        lblDashboardCourse11.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
-        lblDashboardCourse11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDashboardCourse11.setText("Curso 2");
-        lblDashboardCourse11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblDashboardCourse11MouseClicked(evt);
-            }
-        });
-
-        lblSeccion11.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
-        lblSeccion11.setText("Seccion");
-
-        javax.swing.GroupLayout pnlDashboardCourse11Layout = new javax.swing.GroupLayout(pnlDashboardCourse11);
-        pnlDashboardCourse11.setLayout(pnlDashboardCourse11Layout);
-        pnlDashboardCourse11Layout.setHorizontalGroup(
-            pnlDashboardCourse11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDashboardCourse11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDashboardCourse11, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(pnlDashboardCourse11Layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(lblSeccion11)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnlDashboardCourse11Layout.setVerticalGroup(
-            pnlDashboardCourse11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDashboardCourse11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDashboardCourse11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSeccion11)
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
-
-        pnlDashboardCourse12.setBackground(new java.awt.Color(236, 231, 220));
-        pnlDashboardCourse12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(15, 15, 11), 1, true));
-        pnlDashboardCourse12.setForeground(new java.awt.Color(19, 122, 127));
-        pnlDashboardCourse12.setPreferredSize(new java.awt.Dimension(170, 100));
-
-        lblDashboardCourse12.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
-        lblDashboardCourse12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDashboardCourse12.setText("Curso 3");
-
-        lblSeccion12.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
-        lblSeccion12.setText("Seccion");
-
-        javax.swing.GroupLayout pnlDashboardCourse12Layout = new javax.swing.GroupLayout(pnlDashboardCourse12);
-        pnlDashboardCourse12.setLayout(pnlDashboardCourse12Layout);
-        pnlDashboardCourse12Layout.setHorizontalGroup(
-            pnlDashboardCourse12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDashboardCourse12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDashboardCourse12, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(pnlDashboardCourse12Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(lblSeccion12)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnlDashboardCourse12Layout.setVerticalGroup(
-            pnlDashboardCourse12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlDashboardCourse12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblDashboardCourse12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSeccion12)
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
-
-        jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
-
-        javax.swing.GroupLayout dashboardAdminLayout = new javax.swing.GroupLayout(dashboardAdmin);
-        dashboardAdmin.setLayout(dashboardAdminLayout);
-        dashboardAdminLayout.setHorizontalGroup(
-            dashboardAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dashboardAdminLayout.createSequentialGroup()
-                .addGroup(dashboardAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDashboardTitleCursos1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(dashboardAdminLayout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(dashboardAdminLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(pnlDashboardCourse10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(pnlDashboardCourse11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(pnlDashboardCourse12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(dashboardAdminLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(pnlDashboardCourse7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(pnlDashboardCourse8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(pnlDashboardCourse9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        dashboardAdminLayout.setVerticalGroup(
-            dashboardAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dashboardAdminLayout.createSequentialGroup()
-                .addComponent(lblDashboardTitleCursos1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(dashboardAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlDashboardCourse10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlDashboardCourse11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlDashboardCourse12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(dashboardAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlDashboardCourse7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlDashboardCourse8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlDashboardCourse9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(310, Short.MAX_VALUE))
-        );
-
-        pnlAdminContent.add(dashboardAdmin, "adminDashboard");
+        Agregar.setBackground(new java.awt.Color(35, 151, 155));
 
         jLabel2.setFont(new java.awt.Font("Sitka Small", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Agregar Maestro");
 
         jLabel3.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Nombre");
 
         jLabel6.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("Email");
 
         jLabel7.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Especialidad");
 
         jLabel18.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(51, 51, 51));
         jLabel18.setText("Telefono");
 
         jLabel19.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(51, 51, 51));
         jLabel19.setText("Contraseña");
 
         btnAddProfesor.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
@@ -2295,6 +2052,8 @@ public class app extends javax.swing.JFrame {
             }
         });
 
+        jLabel13.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("@edu.com");
 
         javax.swing.GroupLayout AgregarLayout = new javax.swing.GroupLayout(Agregar);
@@ -2357,7 +2116,9 @@ public class app extends javax.swing.JFrame {
                 .addContainerGap(205, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Agregar", Agregar);
+        tabPaneMaestroCRUD.addTab("Agregar", Agregar);
+
+        Actualiza.setBackground(new java.awt.Color(35, 151, 155));
 
         jLabel1.setFont(new java.awt.Font("Sitka Small", 1, 24)); // NOI18N
         jLabel1.setText("CONSULTAR O ACTUALIZAR PROFESOR");
@@ -2516,37 +2277,51 @@ public class app extends javax.swing.JFrame {
                 .addContainerGap(58, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Consultar/ Actualizar", Actualiza);
+        tabPaneMaestroCRUD.addTab("Consultar / Actualizar", Actualiza);
 
         javax.swing.GroupLayout profesoresCRUDLayout = new javax.swing.GroupLayout(profesoresCRUD);
         profesoresCRUD.setLayout(profesoresCRUDLayout);
         profesoresCRUDLayout.setHorizontalGroup(
             profesoresCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(tabPaneMaestroCRUD, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         profesoresCRUDLayout.setVerticalGroup(
             profesoresCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(tabPaneMaestroCRUD, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pnlAdminContent.add(profesoresCRUD, "profesoresCRUD");
 
+        estudiantesCRUD.setBackground(new java.awt.Color(35, 151, 155));
+
+        tbPaneEstudiantes.setBackground(new java.awt.Color(236, 231, 220));
+        tbPaneEstudiantes.setForeground(new java.awt.Color(51, 51, 51));
+        tbPaneEstudiantes.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+
+        agregarEstudiante.setBackground(new java.awt.Color(35, 151, 155));
+
         jLabel28.setFont(new java.awt.Font("Sitka Small", 1, 36)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(51, 51, 51));
         jLabel28.setText("Agregar Estudiante");
 
         jLabel57.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel57.setForeground(new java.awt.Color(51, 51, 51));
         jLabel57.setText("Nombre");
 
         jLabel58.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel58.setForeground(new java.awt.Color(51, 51, 51));
         jLabel58.setText("Apellido");
 
         jLabel59.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel59.setForeground(new java.awt.Color(51, 51, 51));
         jLabel59.setText("Email");
 
         jLabel60.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel60.setForeground(new java.awt.Color(51, 51, 51));
         jLabel60.setText("Carnet");
 
         jLabel61.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel61.setForeground(new java.awt.Color(51, 51, 51));
         jLabel61.setText("Telefono");
 
         btnAgregarEstudiante.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
@@ -2557,6 +2332,8 @@ public class app extends javax.swing.JFrame {
             }
         });
 
+        jLabel16.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(51, 51, 51));
         jLabel16.setText("@edu.student.com");
 
         javax.swing.GroupLayout agregarEstudianteLayout = new javax.swing.GroupLayout(agregarEstudiante);
@@ -2589,7 +2366,7 @@ public class app extends javax.swing.JFrame {
                     .addGroup(agregarEstudianteLayout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addComponent(jLabel28)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         agregarEstudianteLayout.setVerticalGroup(
             agregarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2619,30 +2396,39 @@ public class app extends javax.swing.JFrame {
                     .addComponent(txtAgregarEstudianteTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addComponent(btnAgregarEstudiante)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(209, Short.MAX_VALUE))
         );
 
         tbPaneEstudiantes.addTab("Agregar", agregarEstudiante);
 
+        actualizarEstudiante.setBackground(new java.awt.Color(35, 151, 155));
+
         jLabel62.setFont(new java.awt.Font("Sitka Small", 1, 24)); // NOI18N
+        jLabel62.setForeground(new java.awt.Color(51, 51, 51));
         jLabel62.setText("Consultar o Actualizar Estudiante");
 
         jLabel63.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel63.setForeground(new java.awt.Color(51, 51, 51));
         jLabel63.setText("ID Estudiante");
 
         jLabel64.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel64.setForeground(new java.awt.Color(51, 51, 51));
         jLabel64.setText("Nombre");
 
         jLabel81.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel81.setForeground(new java.awt.Color(51, 51, 51));
         jLabel81.setText("Apellido");
 
         jLabel82.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel82.setForeground(new java.awt.Color(51, 51, 51));
         jLabel82.setText("Email");
 
         jLabel83.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel83.setForeground(new java.awt.Color(51, 51, 51));
         jLabel83.setText("Carnet");
 
         jLabel84.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel84.setForeground(new java.awt.Color(51, 51, 51));
         jLabel84.setText("Telefono");
 
         tblStudentUpdate.setModel(new javax.swing.table.DefaultTableModel(
@@ -2754,40 +2540,41 @@ public class app extends javax.swing.JFrame {
                 .addGroup(actualizarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnActualizarEstudiante)
                     .addComponent(btnConsultarEstudiantes))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
-        tbPaneEstudiantes.addTab("Consultar/ Actualizar", actualizarEstudiante);
+        tbPaneEstudiantes.addTab("Consultar / Actualizar", actualizarEstudiante);
 
         javax.swing.GroupLayout estudiantesCRUDLayout = new javax.swing.GroupLayout(estudiantesCRUD);
         estudiantesCRUD.setLayout(estudiantesCRUDLayout);
         estudiantesCRUDLayout.setHorizontalGroup(
             estudiantesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(estudiantesCRUDLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tbPaneEstudiantes)
-                .addGap(18, 18, 18))
+            .addComponent(tbPaneEstudiantes)
         );
         estudiantesCRUDLayout.setVerticalGroup(
             estudiantesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(estudiantesCRUDLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tbPaneEstudiantes)
-                .addGap(23, 23, 23))
+            .addComponent(tbPaneEstudiantes)
         );
 
         pnlAdminContent.add(estudiantesCRUD, "estudiantesCRUD");
 
+        cursoCRUD.setBackground(new java.awt.Color(35, 151, 155));
+        cursoCRUD.setForeground(new java.awt.Color(51, 51, 51));
+
         jLabel102.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel102.setForeground(new java.awt.Color(51, 51, 51));
         jLabel102.setText("Nombre");
 
         jLabel104.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel104.setForeground(new java.awt.Color(51, 51, 51));
         jLabel104.setText("Semestre");
 
         jLabel94.setFont(new java.awt.Font("Sitka Small", 1, 24)); // NOI18N
+        jLabel94.setForeground(new java.awt.Color(51, 51, 51));
         jLabel94.setText("AGREGAR CURSO");
 
         jLabel103.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel103.setForeground(new java.awt.Color(51, 51, 51));
         jLabel103.setText("Codigo");
 
         cmbBoxCursoAgregarSemestre.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
@@ -2842,8 +2629,10 @@ public class app extends javax.swing.JFrame {
         });
 
         jLabel17.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(51, 51, 51));
         jLabel17.setText("ID");
 
+        btnClearSelection.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
         btnClearSelection.setText("Limpiar selección");
         btnClearSelection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2919,20 +2708,30 @@ public class app extends javax.swing.JFrame {
                     .addComponent(btnActualizarCurso)
                     .addComponent(btnAddCurso)
                     .addComponent(btnConsultarCursos))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pnlAdminContent.add(cursoCRUD, "cursoCRUD");
 
+        seccionesCRUD.setBackground(new java.awt.Color(35, 151, 155));
+
+        jLabel95.setBackground(new java.awt.Color(51, 51, 51));
         jLabel95.setFont(new java.awt.Font("Sitka Small", 1, 36)); // NOI18N
+        jLabel95.setForeground(new java.awt.Color(51, 51, 51));
         jLabel95.setText("Secciones");
 
+        jLabel96.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel96.setForeground(new java.awt.Color(51, 51, 51));
         jLabel96.setText("ID Curso");
 
+        jLabel97.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel97.setForeground(new java.awt.Color(51, 51, 51));
         jLabel97.setText("ID Profesor");
 
         cmbBoxCrudSeccionLetra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K" }));
 
+        jLabel98.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel98.setForeground(new java.awt.Color(51, 51, 51));
         jLabel98.setText("Letra");
 
         tblCrudSeccion.setModel(new javax.swing.table.DefaultTableModel(
@@ -2956,6 +2755,7 @@ public class app extends javax.swing.JFrame {
             tblCrudSeccion.getColumnModel().getColumn(2).setResizable(false);
         }
 
+        btnConsultarSecciones.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
         btnConsultarSecciones.setText("Consultar");
         btnConsultarSecciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2963,6 +2763,7 @@ public class app extends javax.swing.JFrame {
             }
         });
 
+        btnAddSeccion.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
         btnAddSeccion.setText("Agregar");
         btnAddSeccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2970,6 +2771,7 @@ public class app extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateSeccion.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
         btnUpdateSeccion.setText("Actualizar");
         btnUpdateSeccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2977,6 +2779,8 @@ public class app extends javax.swing.JFrame {
             }
         });
 
+        jLabel20.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel20.setForeground(new java.awt.Color(51, 51, 51));
         jLabel20.setText("ID Seccion");
 
         javax.swing.GroupLayout seccionesCRUDLayout = new javax.swing.GroupLayout(seccionesCRUD);
@@ -3054,20 +2858,32 @@ public class app extends javax.swing.JFrame {
 
         pnlAdminContent.add(seccionesCRUD, "seccionCRUD");
 
-        jLabel99.setFont(new java.awt.Font("Sitka Small", 1, 24)); // NOI18N
+        asignacionesCRUD.setBackground(new java.awt.Color(35, 151, 155));
+
+        jLabel99.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel99.setFont(new java.awt.Font("Sitka Small", 1, 36)); // NOI18N
+        jLabel99.setForeground(new java.awt.Color(51, 51, 51));
         jLabel99.setText("ASIGNACION");
 
+        jLabel100.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel100.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel100.setForeground(new java.awt.Color(51, 51, 51));
         jLabel100.setText("ID Estudiante");
 
+        jLabel101.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel101.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel101.setForeground(new java.awt.Color(51, 51, 51));
         jLabel101.setText("ID Seccion");
 
-        btnAsignarCurso.setText("ASIGNAR");
+        btnAsignarCurso.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        btnAsignarCurso.setText("Asignar");
         btnAsignarCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAsignarCursoActionPerformed(evt);
             }
         });
 
+        tblAsignacionCRUD.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
         tblAsignacionCRUD.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -3086,20 +2902,25 @@ public class app extends javax.swing.JFrame {
         });
         jScrollPane11.setViewportView(tblAsignacionCRUD);
 
-        btnConsultarAsignaciones.setText("CONSULTAR");
+        btnConsultarAsignaciones.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        btnConsultarAsignaciones.setText("Consultar");
         btnConsultarAsignaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultarAsignacionesActionPerformed(evt);
             }
         });
 
-        btnUpdateAsignacion.setText("ACTUALIZAR");
+        btnUpdateAsignacion.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        btnUpdateAsignacion.setText("Actualizar");
         btnUpdateAsignacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateAsignacionActionPerformed(evt);
             }
         });
 
+        jLabel21.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel21.setFont(new java.awt.Font("Sitka Small", 0, 12)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(51, 51, 51));
         jLabel21.setText("ID Asignacion");
 
         javax.swing.GroupLayout asignacionesCRUDLayout = new javax.swing.GroupLayout(asignacionesCRUD);
@@ -3109,26 +2930,26 @@ public class app extends javax.swing.JFrame {
             .addGroup(asignacionesCRUDLayout.createSequentialGroup()
                 .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnConsultarAsignaciones)
-                    .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(asignacionesCRUDLayout.createSequentialGroup()
-                            .addGap(190, 190, 190)
-                            .addComponent(jLabel99))
-                        .addGroup(asignacionesCRUDLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel100)
-                                .addComponent(btnAsignarCurso)
-                                .addComponent(jLabel101)
-                                .addComponent(jLabel21))
-                            .addGap(18, 18, 18)
-                            .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtIDSeccion, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                .addComponent(btnUpdateAsignacion)
-                                .addComponent(txtIDEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                .addComponent(txtIDAsignacion))
-                            .addGap(18, 18, 18)
-                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                    .addGroup(asignacionesCRUDLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel100)
+                            .addComponent(btnAsignarCurso)
+                            .addComponent(jLabel101)
+                            .addComponent(jLabel21))
+                        .addGap(18, 18, 18)
+                        .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtIDSeccion, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(btnUpdateAsignacion)
+                            .addComponent(txtIDEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(txtIDAsignacion))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(12, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, asignacionesCRUDLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel99)
+                .addGap(159, 159, 159))
         );
         asignacionesCRUDLayout.setVerticalGroup(
             asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3156,7 +2977,7 @@ public class app extends javax.swing.JFrame {
                             .addComponent(btnUpdateAsignacion))))
                 .addGap(18, 18, 18)
                 .addComponent(btnConsultarAsignaciones)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         pnlAdminContent.add(asignacionesCRUD, "asignacionCRUD");
@@ -3325,11 +3146,13 @@ public class app extends javax.swing.JFrame {
     }//GEN-LAST:event_lblTeacherLogOutMouseClicked
 
     private void lblTeacherLogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTeacherLogOutMouseEntered
-        // TODO add your handling code here:
+        lblTeacherLogOut.setOpaque(true);
+        lblTeacherLogOut.repaint();
     }//GEN-LAST:event_lblTeacherLogOutMouseEntered
 
     private void lblTeacherLogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTeacherLogOutMouseExited
-        // TODO add your handling code here:
+        lblTeacherLogOut.setOpaque(false);
+        lblTeacherLogOut.repaint();
     }//GEN-LAST:event_lblTeacherLogOutMouseExited
 
     private void lblTeacherShowGradesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTeacherShowGradesMouseClicked
@@ -3347,7 +3170,7 @@ public class app extends javax.swing.JFrame {
     }//GEN-LAST:event_lblTeacherShowGradesMouseEntered
 
     private void lblTeacherShowGradesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTeacherShowGradesMouseExited
-        if(currentOpaqueLabel!=2){
+        if(currentOpaqueLabel!=1){
             lblTeacherShowGrades.setOpaque(false);
             lblTeacherShowGrades.repaint();
         }
@@ -3411,7 +3234,7 @@ public class app extends javax.swing.JFrame {
     }//GEN-LAST:event_lblTeacherShowHomeworkMouseEntered
 
     private void lblTeacherShowHomeworkMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTeacherShowHomeworkMouseExited
-        if(currentOpaqueLabel!=3){
+        if(currentOpaqueLabel!=2){
             lblTeacherShowHomework.setOpaque(false);
             lblTeacherShowHomework.repaint();
         }
@@ -3438,6 +3261,9 @@ public class app extends javax.swing.JFrame {
         CardLayout card = (CardLayout)pnlTeacherContent.getLayout();
         initCoursePage(lblDashboardCourse1.getText());
         card.show(pnlTeacherContent, "teacherCourse");
+        lblTeacherTopInfo.setText(lblDashboardCourse1.getText());
+        lblTeacherTopInfo.setIcon((new javax.swing.ImageIcon(getClass().getResource("/courseIcon.png"))));
+        
     }//GEN-LAST:event_lblDashboardCourse1MouseClicked
 
     private void btnAgregarTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarTareaActionPerformed
@@ -3545,6 +3371,8 @@ public class app extends javax.swing.JFrame {
         CardLayout card = (CardLayout)pnlTeacherContent.getLayout();
         initCoursePage(lblDashboardCourse2.getText());
         card.show(pnlTeacherContent, "teacherCourse");
+        lblTeacherTopInfo.setText(lblDashboardCourse2.getText());
+        lblTeacherTopInfo.setIcon((new javax.swing.ImageIcon(getClass().getResource("/courseIcon.png"))));
     }//GEN-LAST:event_lblDashboardCourse2MouseClicked
 
     private void btnAddGradeBuscarTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddGradeBuscarTareasActionPerformed
@@ -3834,22 +3662,6 @@ public class app extends javax.swing.JFrame {
         cmbBoxConsultaNotasEstudiante.setSelectedItem("--");
     }//GEN-LAST:event_btnUpdateGradeActionPerformed
 
-    private void lblAdminShowDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowDashboardMouseClicked
-        // TODO add your handling code here:
-        CardLayout card = (CardLayout)pnlAdminContent.getLayout();
-       // initTeacherMenuOpaque(0);
-        card.show(pnlAdminContent, "adminDashboard");
-       // teacherTopInfo(); 
-    }//GEN-LAST:event_lblAdminShowDashboardMouseClicked
-
-    private void lblAdminShowDashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowDashboardMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblAdminShowDashboardMouseEntered
-
-    private void lblAdminShowDashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowDashboardMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblAdminShowDashboardMouseExited
-
     private void lblAdminLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminLogOutMouseClicked
         CardLayout card = (CardLayout)mainPanel.getLayout();
         admin = new Admin();
@@ -3857,19 +3669,21 @@ public class app extends javax.swing.JFrame {
     }//GEN-LAST:event_lblAdminLogOutMouseClicked
 
     private void lblAdminLogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminLogOutMouseEntered
-        // TODO add your handling code here:
+        lblAdminLogOut.setOpaque(true);
+        lblAdminLogOut.repaint();
     }//GEN-LAST:event_lblAdminLogOutMouseEntered
 
     private void lblAdminLogOutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminLogOutMouseExited
-        // TODO add your handling code here:
+        lblAdminLogOut.setOpaque(false);
+        lblAdminLogOut.repaint();
     }//GEN-LAST:event_lblAdminLogOutMouseExited
 
     private void lblAdminShowProfesoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowProfesoresMouseClicked
-        // TODO add your handling code here:
-        CardLayout card = (CardLayout)pnlAdminContent.getLayout();
-       // initTeacherMenuOpaque(0);
-        card.show(pnlAdminContent, "profesoresCRUD");
-       // teacherTopInfo();
+
+       CardLayout card = (CardLayout)pnlAdminContent.getLayout();
+       initAdminMenuOpaque(0);
+       card.show(pnlAdminContent, "profesoresCRUD");
+       adminTopInfo();
        initAdminTeacherTab();
     }//GEN-LAST:event_lblAdminShowProfesoresMouseClicked
 
@@ -3880,20 +3694,22 @@ public class app extends javax.swing.JFrame {
     }
     
     private void lblAdminShowProfesoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowProfesoresMouseEntered
-        // TODO add your handling code here:
-        
+        lblAdminShowProfesores.setOpaque(true);
+        lblAdminShowProfesores.repaint();
     }//GEN-LAST:event_lblAdminShowProfesoresMouseEntered
 
     private void lblAdminShowProfesoresMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowProfesoresMouseExited
-        // TODO add your handling code here:
+        if(currentAdminOpaqueLabel!=0){
+            lblAdminShowProfesores.setOpaque(false);
+            lblAdminShowProfesores.repaint();
+        }
     }//GEN-LAST:event_lblAdminShowProfesoresMouseExited
 
     private void lblAdminShowCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowCursosMouseClicked
-        // TODO add your handling code here:
        CardLayout card = (CardLayout)pnlAdminContent.getLayout();
-       // initTeacherMenuOpaque(0);
-        card.show(pnlAdminContent, "cursoCRUD");
-       // teacherTopInfo();
+       initAdminMenuOpaque(2);
+       card.show(pnlAdminContent, "cursoCRUD");
+       adminTopInfo();
        initAdminCursoTab();                         
     }//GEN-LAST:event_lblAdminShowCursosMouseClicked
 
@@ -3903,28 +3719,23 @@ public class app extends javax.swing.JFrame {
     }
     
     private void lblAdminShowCursosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowCursosMouseEntered
-        // TODO add your handling code here:
+        lblAdminShowCursos.setOpaque(true);
+        lblAdminShowCursos.repaint();
     }//GEN-LAST:event_lblAdminShowCursosMouseEntered
 
     private void lblAdminShowCursosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowCursosMouseExited
-        // TODO add your handling code here:
+        if(currentAdminOpaqueLabel!=2){
+            lblAdminShowCursos.setOpaque(false);
+            lblAdminShowCursos.repaint();
+        }
     }//GEN-LAST:event_lblAdminShowCursosMouseExited
 
-    private void lblDashboardCourse10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardCourse10MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblDashboardCourse10MouseClicked
-
-    private void lblDashboardCourse11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardCourse11MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblDashboardCourse11MouseClicked
-
     private void lblAdminShowEstudiantesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowEstudiantesMouseClicked
-        // TODO add your handling code here:
-       CardLayout card = (CardLayout)pnlAdminContent.getLayout();
-       // initTeacherMenuOpaque(0);
+        CardLayout card = (CardLayout)pnlAdminContent.getLayout();
+        initAdminMenuOpaque(1);
         card.show(pnlAdminContent, "estudiantesCRUD");
-       // teacherTopInfo();
-       initAdminStudentTab();
+        adminTopInfo();
+        initAdminStudentTab();
     }//GEN-LAST:event_lblAdminShowEstudiantesMouseClicked
 
     private void initAdminStudentTab(){
@@ -3933,20 +3744,23 @@ public class app extends javax.swing.JFrame {
     }
     
     private void lblAdminShowEstudiantesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowEstudiantesMouseEntered
-        // TODO add your handling code here:
+        lblAdminShowEstudiantes.setOpaque(true);
+        lblAdminShowEstudiantes.repaint();
     }//GEN-LAST:event_lblAdminShowEstudiantesMouseEntered
 
     private void lblAdminShowEstudiantesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowEstudiantesMouseExited
-        // TODO add your handling code here:
+        if(currentAdminOpaqueLabel!=1){
+            lblAdminShowEstudiantes.setOpaque(false);
+            lblAdminShowEstudiantes.repaint();
+        }
     }//GEN-LAST:event_lblAdminShowEstudiantesMouseExited
 
     private void lblAdminShowAsignacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowAsignacionesMouseClicked
-        // TODO add your handling code here:
-       CardLayout card = (CardLayout)pnlAdminContent.getLayout();
-       // initTeacherMenuOpaque(0);
+        CardLayout card = (CardLayout)pnlAdminContent.getLayout();
+        initAdminMenuOpaque(4);
         card.show(pnlAdminContent, "asignacionCRUD");
-       // teacherTopInfo();
-       initAdminAsignacionTab(); 
+        adminTopInfo();
+        initAdminAsignacionTab(); 
     }//GEN-LAST:event_lblAdminShowAsignacionesMouseClicked
 
     private void initAdminAsignacionTab(){
@@ -3955,19 +3769,22 @@ public class app extends javax.swing.JFrame {
     }
     
     private void lblAdminShowAsignacionesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowAsignacionesMouseEntered
-        // TODO add your handling code here:
+        lblAdminShowAsignaciones.setOpaque(true);
+        lblAdminShowAsignaciones.repaint();
     }//GEN-LAST:event_lblAdminShowAsignacionesMouseEntered
 
     private void lblAdminShowAsignacionesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowAsignacionesMouseExited
-        // TODO add your handling code here:
+        if(currentAdminOpaqueLabel!=4){
+            lblAdminShowAsignaciones.setOpaque(false);
+            lblAdminShowAsignaciones.repaint();
+        }
     }//GEN-LAST:event_lblAdminShowAsignacionesMouseExited
 
     private void lblAdminShowSeccionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowSeccionesMouseClicked
-        // TODO add your handling code here:
        CardLayout card = (CardLayout)pnlAdminContent.getLayout();
-       // initTeacherMenuOpaque(0);
-        card.show(pnlAdminContent, "seccionCRUD");
-       // teacherTopInfo();
+       initAdminMenuOpaque(3);
+       card.show(pnlAdminContent, "seccionCRUD");
+       adminTopInfo();
        initAdminSeccionTab(); 
     }//GEN-LAST:event_lblAdminShowSeccionesMouseClicked
   
@@ -3977,11 +3794,15 @@ public class app extends javax.swing.JFrame {
     }
     
     private void lblAdminShowSeccionesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowSeccionesMouseEntered
-        // TODO add your handling code here:
+        lblAdminShowSecciones.setOpaque(true);
+        lblAdminShowSecciones.repaint();
     }//GEN-LAST:event_lblAdminShowSeccionesMouseEntered
 
     private void lblAdminShowSeccionesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowSeccionesMouseExited
-        // TODO add your handling code here:
+        if(currentAdminOpaqueLabel!=3){
+            lblAdminShowSecciones.setOpaque(false);
+            lblAdminShowSecciones.repaint();
+        }
     }//GEN-LAST:event_lblAdminShowSeccionesMouseExited
 
     private void btnConsultarProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarProfesorActionPerformed
@@ -4352,6 +4173,38 @@ public class app extends javax.swing.JFrame {
         txtIDSeccion.setText(String.valueOf(tblAsignacionCRUD.getValueAt(row, 2)));
     }//GEN-LAST:event_tblAsignacionCRUDMouseClicked
 
+    private void lblDashboardCourse3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardCourse3MouseClicked
+        CardLayout card = (CardLayout)pnlTeacherContent.getLayout();
+        initCoursePage(lblDashboardCourse3.getText());
+        card.show(pnlTeacherContent, "teacherCourse");
+        lblTeacherTopInfo.setText(lblDashboardCourse3.getText());
+        lblTeacherTopInfo.setIcon((new javax.swing.ImageIcon(getClass().getResource("/courseIcon.png"))));
+    }//GEN-LAST:event_lblDashboardCourse3MouseClicked
+
+    private void lblDashboardCourse4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardCourse4MouseClicked
+        CardLayout card = (CardLayout)pnlTeacherContent.getLayout();
+        initCoursePage(lblDashboardCourse4.getText());
+        card.show(pnlTeacherContent, "teacherCourse");
+        lblTeacherTopInfo.setText(lblDashboardCourse4.getText());
+        lblTeacherTopInfo.setIcon((new javax.swing.ImageIcon(getClass().getResource("/courseIcon.png"))));
+    }//GEN-LAST:event_lblDashboardCourse4MouseClicked
+
+    private void lblDashboardCourse5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardCourse5MouseClicked
+        CardLayout card = (CardLayout)pnlTeacherContent.getLayout();
+        initCoursePage(lblDashboardCourse5.getText());
+        card.show(pnlTeacherContent, "teacherCourse");
+        lblTeacherTopInfo.setText(lblDashboardCourse5.getText());
+        lblTeacherTopInfo.setIcon((new javax.swing.ImageIcon(getClass().getResource("/courseIcon.png"))));
+    }//GEN-LAST:event_lblDashboardCourse5MouseClicked
+
+    private void lblDashboardCourse6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardCourse6MouseClicked
+        CardLayout card = (CardLayout)pnlTeacherContent.getLayout();
+        initCoursePage(lblDashboardCourse6.getText());
+        card.show(pnlTeacherContent, "teacherCourse");
+        lblTeacherTopInfo.setText(lblDashboardCourse6.getText());
+        lblTeacherTopInfo.setIcon((new javax.swing.ImageIcon(getClass().getResource("/courseIcon.png"))));
+    }//GEN-LAST:event_lblDashboardCourse6MouseClicked
+
     private void clearAsignacionFields(){
         txtIDAsignacion.setText("");
         txtIDEstudiante.setText("");
@@ -4461,7 +4314,59 @@ public class app extends javax.swing.JFrame {
     }
     
     private void initAdmin(){
+        initAdminMenuOpaque(0);
+        adminTopInfo();
+    }
+    
+    private void adminTopInfo(){
+        switch(currentAdminOpaqueLabel){
+            case 0:{
+                lblAdminTopInfo.setText("Profesores");                
+                lblAdminTopInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/teacher.png")));
+                break;
+            }
+            case 1:{
+                lblAdminTopInfo.setText("Estudiantes");
+                lblAdminTopInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student.png")));
+                break;
+            }
+            case 2:{
+                lblAdminTopInfo.setText("Cursos");
+                lblAdminTopInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/courses.png")));
+                break;
+            }
+            case 3:{
+                lblAdminTopInfo.setText("Secciones");
+                lblAdminTopInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/seccion.png")));
+                break;
+            }
+            case 4:{
+                lblAdminTopInfo.setText("Asignaciones");
+                lblAdminTopInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asignacion.png")));
+                break;
+            }
+        }
+    }
+    
+    private void initAdminMenuOpaque(int option){
+        List<JLabel> labelList;
+        labelList = new ArrayList<>();
+        labelList.add(lblAdminShowProfesores);
+        labelList.add(lblAdminShowEstudiantes);
+        labelList.add(lblAdminShowCursos);
+        labelList.add(lblAdminShowSecciones);
+        labelList.add(lblAdminShowAsignaciones);
         
+        if(currentAdminOpaqueLabel==option){
+            return;
+        }
+        
+        labelList.get(option).setOpaque(true);
+        labelList.get(currentAdminOpaqueLabel).setOpaque(false);
+        
+        labelList.get(option).repaint();
+        labelList.get(currentAdminOpaqueLabel).repaint();
+        currentAdminOpaqueLabel = option;
     }
     
     private void initTeacherMenuOpaque(int option){
@@ -4502,12 +4407,12 @@ public class app extends javax.swing.JFrame {
             }
             case 1:{
                 lblTeacherTopInfo.setText("Notas");
-                lblTeacherTopInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/attendance.png"))); //TODO
+                lblTeacherTopInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grades.png"))); //TODO
                 break;
             }
             case 2:{
                 lblTeacherTopInfo.setText("Tareas");
-                lblTeacherTopInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/attendance.png"))); //TODO
+                lblTeacherTopInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/homework.png"))); //TODO
                 break;
             }
         }
@@ -4699,7 +4604,6 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JPanel course;
     private javax.swing.JPanel cursoCRUD;
     private javax.swing.JPanel dashboard;
-    private javax.swing.JPanel dashboardAdmin;
     private javax.swing.JPanel estudiantesCRUD;
     private javax.swing.JPanel grades;
     private javax.swing.JPanel homework;
@@ -4788,17 +4692,15 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblAddNotaMissingTarea;
     private javax.swing.JLabel lblAddNotaMissingTareaSelected;
     private javax.swing.JLabel lblAdminLogOut;
     private javax.swing.JLabel lblAdminShowAsignaciones;
     private javax.swing.JLabel lblAdminShowCursos;
-    private javax.swing.JLabel lblAdminShowDashboard;
     private javax.swing.JLabel lblAdminShowEstudiantes;
     private javax.swing.JLabel lblAdminShowProfesores;
     private javax.swing.JLabel lblAdminShowSecciones;
+    private javax.swing.JLabel lblAdminTopInfo;
     private javax.swing.JLabel lblCourseCode;
     private javax.swing.JLabel lblCoursePCodigo;
     private javax.swing.JLabel lblCoursePCodigo1;
@@ -4807,19 +4709,12 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JLabel lblCourseSeccion;
     private javax.swing.JLabel lblCourseSemester;
     private javax.swing.JLabel lblDashboardCourse1;
-    private javax.swing.JLabel lblDashboardCourse10;
-    private javax.swing.JLabel lblDashboardCourse11;
-    private javax.swing.JLabel lblDashboardCourse12;
     private javax.swing.JLabel lblDashboardCourse2;
     private javax.swing.JLabel lblDashboardCourse3;
     private javax.swing.JLabel lblDashboardCourse4;
     private javax.swing.JLabel lblDashboardCourse5;
     private javax.swing.JLabel lblDashboardCourse6;
-    private javax.swing.JLabel lblDashboardCourse7;
-    private javax.swing.JLabel lblDashboardCourse8;
-    private javax.swing.JLabel lblDashboardCourse9;
     private javax.swing.JLabel lblDashboardTitleCursos;
-    private javax.swing.JLabel lblDashboardTitleCursos1;
     private javax.swing.JLabel lblIconEmail;
     private javax.swing.JLabel lblIconPassword;
     private javax.swing.JLabel lblLoginEmailMessage;
@@ -4828,23 +4723,16 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JLabel lblLoginTitle;
     private javax.swing.JLabel lblLoginTopInfo;
     private javax.swing.JLabel lblSeccion1;
-    private javax.swing.JLabel lblSeccion10;
-    private javax.swing.JLabel lblSeccion11;
-    private javax.swing.JLabel lblSeccion12;
     private javax.swing.JLabel lblSeccion2;
     private javax.swing.JLabel lblSeccion3;
     private javax.swing.JLabel lblSeccion4;
     private javax.swing.JLabel lblSeccion5;
     private javax.swing.JLabel lblSeccion6;
-    private javax.swing.JLabel lblSeccion7;
-    private javax.swing.JLabel lblSeccion8;
-    private javax.swing.JLabel lblSeccion9;
     private javax.swing.JLabel lblTeacherLogOut;
     private javax.swing.JLabel lblTeacherShowDashboard;
     private javax.swing.JLabel lblTeacherShowGrades;
     private javax.swing.JLabel lblTeacherShowHomework;
     private javax.swing.JLabel lblTeacherTopInfo;
-    private javax.swing.JLabel lblTeacherTopInfo1;
     private javax.swing.JLabel lblUpdateFechaAsignacion;
     private javax.swing.JList<String> listAddGradeHomework;
     private javax.swing.JList<String> listUpdateTareas;
@@ -4858,17 +4746,11 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JPanel pnlAttendanceAdd1;
     private javax.swing.JPanel pnlAttendanceCheckUpdate1;
     private javax.swing.JPanel pnlDashboardCourse1;
-    private javax.swing.JPanel pnlDashboardCourse10;
-    private javax.swing.JPanel pnlDashboardCourse11;
-    private javax.swing.JPanel pnlDashboardCourse12;
     private javax.swing.JPanel pnlDashboardCourse2;
     private javax.swing.JPanel pnlDashboardCourse3;
     private javax.swing.JPanel pnlDashboardCourse4;
     private javax.swing.JPanel pnlDashboardCourse5;
     private javax.swing.JPanel pnlDashboardCourse6;
-    private javax.swing.JPanel pnlDashboardCourse7;
-    private javax.swing.JPanel pnlDashboardCourse8;
-    private javax.swing.JPanel pnlDashboardCourse9;
     private javax.swing.JPanel pnlLogintab;
     private javax.swing.JPanel pnlTeacherContent;
     private javax.swing.JPanel pnlTeacherInfo;
@@ -4887,6 +4769,7 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JPanel seccionesCRUD;
     private javax.swing.JSpinner spinFechaEntrega;
     private javax.swing.JSpinner spinnerUpdateTareaFechaEntrega;
+    private javax.swing.JTabbedPane tabPaneMaestroCRUD;
     private javax.swing.JTabbedPane tabbedPaneHomework;
     private javax.swing.JTabbedPane tabbedPaneNotas;
     private javax.swing.JTable tableAddGrades;
@@ -4968,6 +4851,7 @@ public class app extends javax.swing.JFrame {
         
         scrollPaneGrades.getVerticalScrollBar().setUI(new CustomScrollBarUI());
         scrollTableConsultaNotas.getVerticalScrollBar().setUI(new CustomScrollBarUI());
+        scrollPaneAddGradesTable.getVerticalScrollBar().setUI(new CustomScrollBarUI());       
         
         DefaultTableModel model;
         model = new DefaultTableModel(new String [] {"Nombre","Carnet","Nota"}, 0);
