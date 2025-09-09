@@ -83,12 +83,14 @@ public class app extends javax.swing.JFrame {
     List<Student> listaEstudiantes;
     List<Course> listaCursos;
     List<Seccion> listaSeccion;
+    List<Asignacion> listaAsignacion;
     
     //Tablas de admin
     DefaultTableModel tableConsultaTeachers;
     DefaultTableModel tableConsultaEstudiantes;
     DefaultTableModel tableCRUDCurso;
     DefaultTableModel tableCRUDSeccion;
+    DefaultTableModel tableCRUDAsignacion;
     
     public app() {
         initComponents();
@@ -107,6 +109,8 @@ public class app extends javax.swing.JFrame {
         tableCRUDSeccion = new DefaultTableModel(new String [] {"ID", "ID Curso","ID Profesor","Letra"}, 0);
         tblCrudSeccion.setModel(tableCRUDSeccion);
         
+        tableCRUDAsignacion = new DefaultTableModel(new String [] {"ID", "ID Estudiante","ID Sección"}, 0);
+        tblAsignacionCRUD.setModel(tableCRUDAsignacion);
     }
 
     @SuppressWarnings("unchecked")
@@ -391,13 +395,15 @@ public class app extends javax.swing.JFrame {
         jLabel99 = new javax.swing.JLabel();
         jLabel100 = new javax.swing.JLabel();
         jLabel101 = new javax.swing.JLabel();
-        jTextField32 = new javax.swing.JTextField();
-        jTextField33 = new javax.swing.JTextField();
-        jButton11 = new javax.swing.JButton();
+        txtIDEstudiante = new javax.swing.JTextField();
+        txtIDSeccion = new javax.swing.JTextField();
+        btnAsignarCurso = new javax.swing.JButton();
         jScrollPane11 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        tblAsignacionCRUD = new javax.swing.JTable();
+        btnConsultarAsignaciones = new javax.swing.JButton();
+        btnUpdateAsignacion = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        txtIDAsignacion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -1979,9 +1985,9 @@ public class app extends javax.swing.JFrame {
                 .addComponent(lblAdminShowSecciones, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblAdminShowAsignaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblAdminLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         adminApp.add(pnlAdminInfo);
@@ -2687,30 +2693,29 @@ public class app extends javax.swing.JFrame {
             .addGroup(actualizarEstudianteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(actualizarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(actualizarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(actualizarEstudianteLayout.createSequentialGroup()
-                            .addComponent(btnConsultarEstudiantes)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnActualizarEstudiante))
-                        .addGroup(actualizarEstudianteLayout.createSequentialGroup()
-                            .addGroup(actualizarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel63)
-                                .addComponent(jLabel84, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel83, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel82, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel81, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel64, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(actualizarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel62)
-                                .addGroup(actualizarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtActualizarAlumnoTelefono, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtActualizarAlumnoCarnet, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtActualizarAlumnoEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtActualizarAlumnoApellido, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtActualizarAlumnoNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtActualizarAlumnoID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(actualizarEstudianteLayout.createSequentialGroup()
+                        .addComponent(btnConsultarEstudiantes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnActualizarEstudiante))
+                    .addGroup(actualizarEstudianteLayout.createSequentialGroup()
+                        .addGroup(actualizarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel63)
+                            .addComponent(jLabel84, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel83, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel82, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel81, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel64, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(actualizarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel62)
+                            .addGroup(actualizarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtActualizarAlumnoTelefono, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtActualizarAlumnoCarnet, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtActualizarAlumnoEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtActualizarAlumnoApellido, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtActualizarAlumnoNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtActualizarAlumnoID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -2926,7 +2931,7 @@ public class app extends javax.swing.JFrame {
 
         jLabel97.setText("ID Profesor");
 
-        cmbBoxCrudSeccionLetra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", " " }));
+        cmbBoxCrudSeccionLetra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K" }));
 
         jLabel98.setText("Letra");
 
@@ -2966,6 +2971,11 @@ public class app extends javax.swing.JFrame {
         });
 
         btnUpdateSeccion.setText("Actualizar");
+        btnUpdateSeccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateSeccionActionPerformed(evt);
+            }
+        });
 
         jLabel20.setText("ID Seccion");
 
@@ -3051,9 +3061,14 @@ public class app extends javax.swing.JFrame {
 
         jLabel101.setText("ID Seccion");
 
-        jButton11.setText("ASIGNAR");
+        btnAsignarCurso.setText("ASIGNAR");
+        btnAsignarCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsignarCursoActionPerformed(evt);
+            }
+        });
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        tblAsignacionCRUD.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -3064,46 +3079,56 @@ public class app extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane11.setViewportView(jTable5);
+        tblAsignacionCRUD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblAsignacionCRUDMouseClicked(evt);
+            }
+        });
+        jScrollPane11.setViewportView(tblAsignacionCRUD);
 
-        jButton12.setText("CONSULTAR");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        btnConsultarAsignaciones.setText("CONSULTAR");
+        btnConsultarAsignaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                btnConsultarAsignacionesActionPerformed(evt);
             }
         });
 
-        jButton13.setText("ACTUALIZAR");
+        btnUpdateAsignacion.setText("ACTUALIZAR");
+        btnUpdateAsignacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateAsignacionActionPerformed(evt);
+            }
+        });
+
+        jLabel21.setText("ID Asignacion");
 
         javax.swing.GroupLayout asignacionesCRUDLayout = new javax.swing.GroupLayout(asignacionesCRUD);
         asignacionesCRUD.setLayout(asignacionesCRUDLayout);
         asignacionesCRUDLayout.setHorizontalGroup(
             asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(asignacionesCRUDLayout.createSequentialGroup()
-                .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(asignacionesCRUDLayout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addComponent(jLabel99))
-                    .addGroup(asignacionesCRUDLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel100)
-                            .addComponent(jLabel101))
-                        .addGap(56, 56, 56)
-                        .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(asignacionesCRUDLayout.createSequentialGroup()
-                                .addComponent(jButton11)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton13))
+                .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnConsultarAsignaciones)
+                    .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(asignacionesCRUDLayout.createSequentialGroup()
+                            .addGap(190, 190, 190)
+                            .addComponent(jLabel99))
+                        .addGroup(asignacionesCRUDLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel100)
+                                .addComponent(btnAsignarCurso)
+                                .addComponent(jLabel101)
+                                .addComponent(jLabel21))
+                            .addGap(18, 18, 18)
                             .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField32)
-                                .addComponent(jTextField33, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))
-                    .addGroup(asignacionesCRUDLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton12)
-                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                                .addComponent(txtIDSeccion, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                .addComponent(btnUpdateAsignacion)
+                                .addComponent(txtIDEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                .addComponent(txtIDAsignacion))
+                            .addGap(18, 18, 18)
+                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         asignacionesCRUDLayout.setVerticalGroup(
             asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3111,25 +3136,30 @@ public class app extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel99)
                 .addGap(31, 31, 31)
-                .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel100)
-                    .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(asignacionesCRUDLayout.createSequentialGroup()
+                        .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel21)
+                            .addComponent(txtIDAsignacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel100)
+                            .addComponent(txtIDEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel101)
+                            .addComponent(txtIDSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAsignarCurso)
+                            .addComponent(btnUpdateAsignacion))))
                 .addGap(18, 18, 18)
-                .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel101)
-                    .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(asignacionesCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11)
-                    .addComponent(jButton13))
-                .addGap(52, 52, 52)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton12)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addComponent(btnConsultarAsignaciones)
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
-        pnlAdminContent.add(asignacionesCRUD, "card10");
+        pnlAdminContent.add(asignacionesCRUD, "asignacionCRUD");
 
         adminApp.add(pnlAdminContent);
         pnlAdminContent.setBounds(230, 30, 570, 570);
@@ -3821,7 +3851,9 @@ public class app extends javax.swing.JFrame {
     }//GEN-LAST:event_lblAdminShowDashboardMouseExited
 
     private void lblAdminLogOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminLogOutMouseClicked
-        // TODO add your handling code here:
+        CardLayout card = (CardLayout)mainPanel.getLayout();
+        admin = new Admin();
+        card.show(mainPanel, "login");
     }//GEN-LAST:event_lblAdminLogOutMouseClicked
 
     private void lblAdminLogOutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminLogOutMouseEntered
@@ -3910,8 +3942,18 @@ public class app extends javax.swing.JFrame {
 
     private void lblAdminShowAsignacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowAsignacionesMouseClicked
         // TODO add your handling code here:
+       CardLayout card = (CardLayout)pnlAdminContent.getLayout();
+       // initTeacherMenuOpaque(0);
+        card.show(pnlAdminContent, "asignacionCRUD");
+       // teacherTopInfo();
+       initAdminAsignacionTab(); 
     }//GEN-LAST:event_lblAdminShowAsignacionesMouseClicked
 
+    private void initAdminAsignacionTab(){
+        tblAsignacionCRUD.getColumn("ID").setPreferredWidth(20);       
+        changeTableLook(tblAsignacionCRUD);
+    }
+    
     private void lblAdminShowAsignacionesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdminShowAsignacionesMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_lblAdminShowAsignacionesMouseEntered
@@ -4001,13 +4043,46 @@ public class app extends javax.swing.JFrame {
     }
     
     private void btnAddSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSeccionActionPerformed
-        // TODO add your handling code here:
+
+        Seccion s = new Seccion();
+        String letraSeccion = (String)cmbBoxCrudSeccionLetra.getSelectedItem();
+        s.setLetra_seccion(letraSeccion.charAt(0));
+        s.setId_curso(Integer.parseInt(txtCrudSeccionIDCurso.getText()));
+        s.setId_profesor(Integer.parseInt(txtCrudSeccionIDProfesor.getText()));
+        
+        try{
+            seccionService.createSeccion(s);
+            JOptionPane.showMessageDialog(this, "Sección agregada con éxito.");
+        }catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error al agregar la sección: " + ex.getMessage());
+        }
+        clearSeccionesFields();
+        loadSecciones();
     }//GEN-LAST:event_btnAddSeccionActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    private void clearSeccionesFields(){
+        txtCrudSeccionIDSeccion.setText("");
+        txtCrudSeccionIDCurso.setText("");
+        txtCrudSeccionIDProfesor.setText("");
+        cmbBoxCrudSeccionLetra.setSelectedItem("A");
+    }
+    
+    private void btnConsultarAsignacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarAsignacionesActionPerformed
+        loadAsignaciones();
+    }//GEN-LAST:event_btnConsultarAsignacionesActionPerformed
 
+    private void loadAsignaciones(){
+        tableCRUDAsignacion.setRowCount(0);
+        try{
+            listaAsignacion = asignacionService.getAsignaciones();
+            for(Asignacion a : listaAsignacion){
+                tableCRUDAsignacion.addRow(new Object[]{a.getId_asignacion(), a.getId_estudiante(), a.getId_seccion()});
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(this, "Error cargando asignaciones:"+ ex.getMessage());
+        }        
+    }
+    
     private void btnAddProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProfesorActionPerformed
         Teacher t = new Teacher();
         t.setNombre(txtProfesorNombre.getText());
@@ -4209,6 +4284,79 @@ public class app extends javax.swing.JFrame {
         cmbBoxCrudSeccionLetra.setSelectedItem(tblCrudSeccion.getValueAt(row, 3));
 
     }//GEN-LAST:event_tblCrudSeccionMouseClicked
+
+    private void btnUpdateSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateSeccionActionPerformed
+
+        Seccion s = new Seccion();
+        int id = Integer.parseInt(txtCrudSeccionIDSeccion.getText());
+        s.setId_seccion(id);
+        String letraSeccion = (String)cmbBoxCrudSeccionLetra.getSelectedItem();
+        s.setLetra_seccion(letraSeccion.charAt(0));
+        s.setId_curso(Integer.parseInt(txtCrudSeccionIDCurso.getText()));
+        s.setId_profesor(Integer.parseInt(txtCrudSeccionIDProfesor.getText()));
+        
+        try{
+            seccionService.updateSeccion(id, s);
+            JOptionPane.showMessageDialog(this, "Sección actualizada correctamente.");
+        }catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error al actualizar sección: " + ex.getMessage());
+        }
+        clearSeccionesFields();
+        loadSecciones();
+    }//GEN-LAST:event_btnUpdateSeccionActionPerformed
+
+    private void btnAsignarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarCursoActionPerformed
+
+        int idEstudiante = Integer.parseInt(txtIDEstudiante.getText());
+        int idSeccion = Integer.parseInt(txtIDSeccion.getText());
+        
+        Asignacion a = new Asignacion();
+        a.setId_estudiante(idEstudiante);
+        a.setId_seccion(idSeccion);
+        
+        try{
+            asignacionService.createAsignacion(a);
+            JOptionPane.showMessageDialog(this, "Asignación creada con éxito.");
+        }catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error al crear la asignación: " + ex.getMessage());
+        }
+        clearAsignacionFields();
+        loadAsignaciones();      
+    }//GEN-LAST:event_btnAsignarCursoActionPerformed
+
+    private void btnUpdateAsignacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateAsignacionActionPerformed
+
+        int idAsignacion = Integer.parseInt(txtIDAsignacion.getText());
+        int idEstudiante = Integer.parseInt(txtIDEstudiante.getText());
+        int idSeccion = Integer.parseInt(txtIDSeccion.getText());
+        
+        Asignacion a = new Asignacion();
+        a.setId_asignacion(idAsignacion);
+        a.setId_estudiante(idEstudiante);
+        a.setId_seccion(idSeccion);
+    
+        try{
+            asignacionService.updateAsignacion(idAsignacion, a);
+            JOptionPane.showMessageDialog(this, "Asignacion actualizada correctamente.");
+        }catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error al actualizar asignación: " + ex.getMessage());
+        }
+        clearAsignacionFields();        
+        loadAsignaciones();
+    }//GEN-LAST:event_btnUpdateAsignacionActionPerformed
+
+    private void tblAsignacionCRUDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAsignacionCRUDMouseClicked
+        int row = tblAsignacionCRUD.getSelectedRow();
+        txtIDAsignacion.setText(String.valueOf(tblAsignacionCRUD.getValueAt(row, 0)));
+        txtIDEstudiante.setText(String.valueOf(tblAsignacionCRUD.getValueAt(row, 1)));
+        txtIDSeccion.setText(String.valueOf(tblAsignacionCRUD.getValueAt(row, 2)));
+    }//GEN-LAST:event_tblAsignacionCRUDMouseClicked
+
+    private void clearAsignacionFields(){
+        txtIDAsignacion.setText("");
+        txtIDEstudiante.setText("");
+        txtIDSeccion.setText("");
+    }
     
     private void crudCourseClearFields(){
         txtCursoAgregarID.setText("");
@@ -4519,7 +4667,9 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JButton btnAddSeccion;
     private javax.swing.JButton btnAgregarEstudiante;
     private javax.swing.JButton btnAgregarTarea;
+    private javax.swing.JButton btnAsignarCurso;
     private javax.swing.JButton btnClearSelection;
+    private javax.swing.JButton btnConsultarAsignaciones;
     private javax.swing.JButton btnConsultarCursos;
     private javax.swing.JButton btnConsultarEstudiantes;
     private javax.swing.JButton btnConsultarNotas;
@@ -4529,6 +4679,7 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JButton btnCourseAddTarea;
     private javax.swing.JButton btnLoginLog;
     private javax.swing.JButton btnSortGradesConsulta;
+    private javax.swing.JButton btnUpdateAsignacion;
     private javax.swing.JButton btnUpdateGrade;
     private javax.swing.JButton btnUpdateSeccion;
     private javax.swing.JButton btnUpdateTarea;
@@ -4553,9 +4704,6 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JPanel grades;
     private javax.swing.JPanel homework;
     private javax.swing.JPanel inSesion;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -4574,6 +4722,7 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -4641,9 +4790,6 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTextField jTextField32;
-    private javax.swing.JTextField jTextField33;
     private javax.swing.JLabel lblAddNotaMissingTarea;
     private javax.swing.JLabel lblAddNotaMissingTareaSelected;
     private javax.swing.JLabel lblAdminLogOut;
@@ -4748,6 +4894,7 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JTable tableCourseTareaList;
     private javax.swing.JTable tableGetUpdateNotes;
     private javax.swing.JTabbedPane tbPaneEstudiantes;
+    private javax.swing.JTable tblAsignacionCRUD;
     private javax.swing.JTable tblCrudSeccion;
     private javax.swing.JTable tblCursoCRUD;
     private javax.swing.JTable tblProfesorUpdate;
@@ -4774,7 +4921,10 @@ public class app extends javax.swing.JFrame {
     private javax.swing.JTextField txtCursoAgregarNombre;
     private javax.swing.JTextField txtEmailProfesorUpdate;
     private javax.swing.JTextField txtEspecialidadProfesorUpdate;
+    private javax.swing.JTextField txtIDAsignacion;
+    private javax.swing.JTextField txtIDEstudiante;
     private javax.swing.JTextField txtIDProfesorUpdate;
+    private javax.swing.JTextField txtIDSeccion;
     private javax.swing.JTextField txtLoginEmail;
     private javax.swing.JTextField txtNombreProfesorUpdate;
     private javax.swing.JTextField txtPasswordProfesorUpdate;

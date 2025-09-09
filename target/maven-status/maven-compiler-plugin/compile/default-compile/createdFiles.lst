@@ -29,6 +29,7 @@ com\umg\sistema\de\notas\app$30.class
 com\umg\sistema\de\notas\service\TeacherService.class
 com\umg\sistema\de\notas\app$20.class
 com\umg\sistema\de\notas\app$37.class
+com\umg\sistema\de\notas\app$53.class
 com\umg\sistema\de\notas\model\Admin.class
 com\umg\sistema\de\notas\app$47.class
 com\umg\sistema\de\notas\service\TareaService$1.class
@@ -40,6 +41,7 @@ com\umg\sistema\de\notas\app$14.class
 com\umg\sistema\de\notas\service\AsignacionService$3.class
 com\umg\sistema\de\notas\app$9.class
 com\umg\sistema\de\notas\app$36.class
+com\umg\sistema\de\notas\app$54.class
 com\umg\sistema\de\notas\validation\Validation.class
 com\umg\sistema\de\notas\model\Student.class
 com\umg\sistema\de\notas\app$8.class
@@ -52,6 +54,7 @@ com\umg\sistema\de\notas\service\SeccionService$1.class
 com\umg\sistema\de\notas\app$45.class
 com\umg\sistema\de\notas\service\AsignacionService$1.class
 com\umg\sistema\de\notas\app$35.class
+com\umg\sistema\de\notas\app$55.class
 com\umg\sistema\de\notas\service\TeacherService$1.class
 com\umg\sistema\de\notas\service\AdminService$1.class
 com\umg\sistema\de\notas\service\GradeService$2.class
@@ -73,6 +76,7 @@ com\umg\sistema\de\notas\app$33.class
 com\umg\sistema\de\notas\app$23.class
 com\umg\sistema\de\notas\model\Tarea.class
 com\umg\sistema\de\notas\app$6.class
+com\umg\sistema\de\notas\app$56.class
 com\umg\sistema\de\notas\app$46.class
 com\umg\sistema\de\notas\model\Attendance.class
 com\umg\sistema\de\notas\app$16.class
